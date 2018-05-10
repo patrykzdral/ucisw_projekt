@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=C:\Users\lab\Desktop\learner\learner\learner\PS2_RX.ncd
+OUTFILE=C:\Users\lab\Desktop\learner\learner\learner\PS2_RX.bit
+FAMILY=Spartan3E
+PART=xc3s100e-4tq144
+WORKINGDIR=C:\Users\lab\Desktop\learner\learner\learner
+LICENSE=ISE
+USER_INFO=174693031_177724690_210552578_727

@@ -1,0 +1,12 @@
+[Inputs]
+Clk
+Reset
+LCD_Busy
+PS2_DoRdy
+=PS2_Input[7:0]=
+[Outputs]
+LCD_WE
+LCD_DnI
+New_Line
+=LCD_DI[7:0]=
+[BiDir]

@@ -1,0 +1,37 @@
+V3 23
+FL C:/Users/lab/Desktop/learner-v2/learner/learner/learner/FSM_String.vhd 2018/04/27.13:48:53 P.20131013
+EN work/FSM_String 1524829736 \
+      FL C:/Users/lab/Desktop/learner-v2/learner/learner/learner/FSM_String.vhd \
+      PB ieee/std_logic_1164 1381692176 PB ieee/std_logic_arith 1381692177 \
+      PB ieee/STD_LOGIC_UNSIGNED 1381692179
+AR work/FSM_String/RTL 1524829737 \
+      FL C:/Users/lab/Desktop/learner-v2/learner/learner/learner/FSM_String.vhd \
+      EN work/FSM_String 1524829736
+FL C:/Users/lab/Desktop/learner-v2/learner/learner/learner/PS2_RX.vhd 2018/03/26.13:13:47 P.20131013
+EN work/PS2_RX 1524829738 \
+      FL C:/Users/lab/Desktop/learner-v2/learner/learner/learner/PS2_RX.vhd \
+      PB ieee/std_logic_1164 1381692176 PB ieee/NUMERIC_STD 1381692181 \
+      PB ieee/STD_LOGIC_SIGNED 1381692178
+AR work/PS2_RX/Behavioral 1524829739 \
+      FL C:/Users/lab/Desktop/learner-v2/learner/learner/learner/PS2_RX.vhd \
+      EN work/PS2_RX 1524829738
+FL C:/Users/lab/Desktop/learner-v2/learner/learner/learner/TYPE_LEARNER_SCH.vhf 2018/04/27.12:42:09 P.20131013
+EN work/TYPE_LEARNER_SCH 1524829740 \
+      FL C:/Users/lab/Desktop/learner-v2/learner/learner/learner/TYPE_LEARNER_SCH.vhf \
+      PB ieee/std_logic_1164 1381692176 PB ieee/NUMERIC_STD 1381692181 LB UNISIM \
+      PH unisim/VCOMPONENTS 1381692182
+AR work/TYPE_LEARNER_SCH/BEHAVIORAL 1524829741 \
+      FL C:/Users/lab/Desktop/learner-v2/learner/learner/learner/TYPE_LEARNER_SCH.vhf \
+      EN work/TYPE_LEARNER_SCH 1524829740 CP FSM_String CP VGAtxt48x20 CP VCC CP GND \
+      CP BUF CP PS2_RX
+FL C:/Users/lab/Desktop/learner/learner/learner/FSM_String.vhd 2018/04/13.13:14:31 P.20131013
+FL C:/Users/lab/Desktop/learner/learner/learner/PS2_RX.vhd 2018/03/26.13:13:47 P.20131013
+FL C:/Users/lab/Desktop/learner/learner/learner/PS2_RX_SCH.vhf 2018/04/13.12:12:01 P.20131013
+EN work/PS2_RX_SCH 1523618470 \
+      FL C:/Users/lab/Desktop/learner/learner/learner/PS2_RX_SCH.vhf \
+      PB ieee/std_logic_1164 1381692176 PB ieee/NUMERIC_STD 1381692181 LB UNISIM \
+      PH unisim/VCOMPONENTS 1381692182
+AR work/PS2_RX_SCH/BEHAVIORAL 1523618471 \
+      FL C:/Users/lab/Desktop/learner/learner/learner/PS2_RX_SCH.vhf \
+      EN work/PS2_RX_SCH 1523618470 CP RS232 CP PS2_RX
+FL C:/Users/lab/Desktop/learner/learner/learner/TYPE_LEARNER_SCH.vhf 2018/04/13.13:41:00 P.20131013
