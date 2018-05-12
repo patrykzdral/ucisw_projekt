@@ -6,7 +6,7 @@ C:\Xilinx\14.7\ISE_DS\ISE\.
 speed -4
 Opened constraints file TYPE_LEARNER_SCH.pcf.
 
-Fri Apr 27 13:50:33 2018
+Fri May 11 14:07:09 2018
 
 C:\Xilinx\14.7\ISE_DS\ISE\bin\nt\unwrapped\bitgen.exe -intstyle ise -w -g DebugBitstream:No -g Binary:no -g CRC:Enable -g ConfigRate:1 -g ProgPin:PullUp -g DonePin:PullUp -g TckPin:PullUp -g TdiPin:PullUp -g TdoPin:PullUp -g TmsPin:PullUp -g UnusedPin:PullDown -g UserID:0xFFFFFFFF -g DCMShutdown:Disable -g StartUpClk:CClk -g DONE_cycle:4 -g GTS_cycle:5 -g GWE_cycle:6 -g LCK_cycle:NoWait -g Security:None -g DonePipe:Yes -g DriveDone:No TYPE_LEARNER_SCH.ncd 
 
@@ -91,7 +91,7 @@ There were 0 CONFIG constraint(s) processed from TYPE_LEARNER_SCH.pcf.
 
 
 Running DRC.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net XLXI_1/LCD_DI_or0000 is
+WARNING:PhysDesignRules:372 - Gated clock. Clock net XLXI_1/State_cmp_eq0002 is
    sourced by a combinatorial pin. This is not good design practice. Use the CE
    pin to control the loading of data into the flip-flop.
 DRC detected 0 errors and 1 warnings.  Please see the previously displayed

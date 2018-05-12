@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2018-05-10T22:37:36</DateModified>
+  <DateModified>2018-05-11T10:19:00</DateModified>
   <ModuleName>TYPE_LEARNER_SCH</ModuleName>
   <SummaryTimeStamp>Unknown</SummaryTimeStamp>
   <SavedFilePath>C:/Users/Patryk Zdral/Downloads/paczka/learner-v2/learner/learner/learner/iseconfig/TYPE_LEARNER_SCH.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>C:/Users/Patryk Zdral/Downloads/paczka/learner-v2/learner/learner/learner</ImplementationReportsDirectory>
+  <ImplementationReportsDirectory>C:/Users/Patryk Zdral/Downloads/paczka/learner-v2/learner/learner/learner\</ImplementationReportsDirectory>
   <DateInitialized>2018-05-10T22:37:35</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>

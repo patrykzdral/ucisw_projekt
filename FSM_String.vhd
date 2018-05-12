@@ -23,24 +23,29 @@ architecture RTL of FSM_String is
   -- FSM
   type state_type is (
     sReset,
-    sBusyWait,
     sWE,
     sLoop,
     sLine,
+	sLine2,
     sWE2,
     sPrint,
-    sBusyWait2
+	 sWEBefore
     );
   signal State, nextState : state_type; 
 
   -- String to print
   type STRINGZ is array ( NATURAL range <> ) of CHARACTER;
-  constant nStrSize : POSITIVE := 12;
-  signal romStr : STRINGZ( 0 to nStrSize - 1 ) := "hello world" & NUL;
+  constant nStrSize : POSITIVE := 30;
+  constant nStrSize2 : POSITIVE := 12;
+  constant nStrSize3 : POSITIVE := 30;
+  signal romStr : STRINGZ( 0 to nStrSize - 1 ) := "witamy na laboratorium uciswu" & NUL;
+  signal romStr2 : STRINGZ( 0 to nStrSize2 - 1 ) := "welcome pwr" & NUL;
+  signal romStr3 : STRINGZ( 0 to nStrSize3 - 1 ) := "hejkaa na laboratorium uciswu" & NUL;
+  signal whichStr : std_logic_vector( 1 downto 0 ) := ( others => '0' );
   signal ascii : STD_LOGIC_VECTOR ( 7 downto 0 ) := ( others => '0' );
-
   -- Character index
-  signal cntIdx : std_logic_vector( 3 downto 0 ) := ( others => '0' );
+  signal cntIdx : std_logic_vector( 5 downto 0 ) := ( others => '0' );
+  
 
 begin
 
@@ -52,10 +57,12 @@ begin
         cntIdx <= ( others => '0' );
       elsif State = sLine then
         cntIdx <= ( others => '0' );
-      elsif State = sBusyWait2 then
-         cntIdx <= cntIdx + 1; --sBusyWait2, poniewaz kiedy sWE2 zapetla sie do siebie - index bylby wciaz inkrementowany
+      elsif State = sWEBefore then
+         cntIdx <= cntIdx + 1;
       elsif State = sWE then
         cntIdx <= cntIdx + 1;
+	  elsif State = sLine2 then
+        whichStr <= whichStr + 1;
       end if;
     end if;
   end process;
@@ -78,19 +85,18 @@ begin
     case State is
 
       when sReset =>
-        nextState <= sBusyWait;
-
-      when sBusyWait =>
-        if LCD_Busy = '0' then
-          nextState <= sWE;
-        end if;
+        nextState <= sWE;
 
       when sWE =>   -- WE pulse
         nextState <= sLoop;
 
       when sLoop =>
-        if romStr( conv_integer( cntIdx ) ) /= NUL then
-            nextState <= sBusyWait;
+		if (whichStr = 0 and romStr( conv_integer( cntIdx ) ) /= NUL) then
+            nextState <= sWE;
+		elsif (whichStr = 1 and romStr2( conv_integer( cntIdx ) ) /= NUL) then
+			nextState <= sWE;
+		elsif (whichStr = 2 and romStr3( conv_integer( cntIdx ) ) /= NUL) then
+			nextState <= sWE;	
         else
             nextState <= sLine;
         end if;
@@ -99,31 +105,54 @@ begin
         nextState <= sWE2;
 
       when sWE2 =>
-         if romStr( conv_integer( cntIdx ) ) /= NUL and ( ascii = ('0' & CONV_STD_LOGIC_VECTOR( CHARACTER'Pos( romStr( conv_integer( cntIdx ) ) ), 7 ) ) ) then
-            nextState <= sBusyWait2;          
-         else
+		if (whichStr = 0 and (romStr( conv_integer( cntIdx ) ) /= NUL) and ( ascii = ('0' & CONV_STD_LOGIC_VECTOR( CHARACTER'Pos( romStr( conv_integer( cntIdx ) ) ), 7 ) ) )) then
+            nextState <= sWEBefore;   
+		elsif (whichStr = 1 and romStr2( conv_integer( cntIdx ) ) /= NUL and ( ascii = ('0' & CONV_STD_LOGIC_VECTOR( CHARACTER'Pos( romStr2( conv_integer( cntIdx ) ) ), 7 ) ) )) then
+			nextState <= sWEBefore;   
+		elsif (whichStr = 2 and romStr3( conv_integer( cntIdx ) ) /= NUL and ( ascii = ('0' & CONV_STD_LOGIC_VECTOR( CHARACTER'Pos( romStr3( conv_integer( cntIdx ) ) ), 7 ) ) )) then
+			nextState <= sWEBefore;
+        elsif (whichStr = 0 and cntIdx = nStrSize - 1) then	
+			nextState <= sLine2;
+        elsif (whichStr = 1 and cntIdx = nStrSize2 - 1) then	
+			nextState <= sLine2;
+        elsif (whichStr = 2 and cntIdx = nStrSize3 - 1) then	
+			nextState <= sLine2;
+		else
             nextState <= sWE2;
          end if;
-         
-      when sBusyWait2 =>
-         if LCD_Busy = '0' then
-            nextState <= sPrint;
-         end if;
-         
+      when sWEBefore =>
+			nextState <= sPrint;
       when sPrint =>
-         nextState <= sWE2;         
-        
+         nextState <= sWE2;
+		 
+	 when sLine2 =>
+		nextState <= sReset;
     end case;
   end process;
   
   -- Outputs
-  LCD_WE  <= '1' when State = sWE else '0';
+  LCD_WE  <= '1' when (State = sWE or State = sWEBefore) else '0'; -- p.zdral zmiana
   LCD_DnI <= '1';
   --LCD_DI <= '0' & 
     --CONV_STD_LOGIC_VECTOR( CHARACTER'Pos( romStr( conv_integer( cntIdx ) ) ), 7 );
-  New_Line <= '1' when State = sLine else '0';
-  LCD_DI <= '0' & CONV_STD_LOGIC_VECTOR( CHARACTER'Pos( romStr( conv_integer( cntIdx ) ) ), 7 ) when ((State = sLoop) or ( State = sPrint ));
- 
+  New_Line <= '1' when (State = sLine or State = sLine2) else '0';  
+  
+--  LCD_DI <= ('0' & CONV_STD_LOGIC_VECTOR( CHARACTER'Pos( romStr( conv_integer( cntIdx ) ) ), 7 )) when whichStr = 0 and ((State = sWE) or ( State = sWEBefore ));
+  --LCD_DI <=('0' & CONV_STD_LOGIC_VECTOR( CHARACTER'Pos( romStr2( conv_integer( cntIdx ) ) ), 7 )) when whichStr = 1 and ((State = sWE) or ( State = sWEBefore ));
+ -- LCD_DI <= ('0' & CONV_STD_LOGIC_VECTOR( CHARACTER'Pos( romStr3( conv_integer( cntIdx ) ) ), 7 )) when whichStr = 2 and ((State = sWE) or ( State = sWEBefore ));
+  
+  process(whichStr, State)
+  begin
+	if (whichStr = 0 and ((State = sWE) or ( State = sWEBefore ))) then
+		LCD_DI <= ('0' & CONV_STD_LOGIC_VECTOR( CHARACTER'Pos( romStr( conv_integer( cntIdx ) ) ), 7 ));
+	elsif (whichStr = 1 and ((State = sWE) or ( State = sWEBefore ))) then
+		LCD_DI <=('0' & CONV_STD_LOGIC_VECTOR( CHARACTER'Pos( romStr2( conv_integer( cntIdx ) ) ), 7 ));
+	elsif (whichStr = 2 and ((State = sWE) or ( State = sWEBefore ))) then
+		LCD_DI <= ('0' & CONV_STD_LOGIC_VECTOR( CHARACTER'Pos( romStr3( conv_integer( cntIdx ) ) ), 7 ));
+	end if;
+  end process;
+  
+  
   process( PS2_Input ) 
   begin
    if PS2_DoRdy = '1' and rising_edge( Clk) then
