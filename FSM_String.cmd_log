@@ -8,3 +8,5 @@ vhdtdtfi -lib work FSM_String.vhd -prj learner -o FSM_String.spl -module FSM_Str
 spl2sym -intstyle ise -family spartan3e FSM_String.spl C:/Users/lab/Desktop/learner-v2/learner/learner/learner/FSM_String.sym 
 vhdtdtfi -lib work FSM_String.vhd -prj learner -o FSM_String.spl -module FSM_String -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
 spl2sym -intstyle ise -family spartan3e FSM_String.spl C:/Users/lab/Desktop/learner-v2/learner/learner/learner/FSM_String.sym 
+vhdtdtfi -lib work FSM_String.vhd -prj learner -o FSM_String.spl -module FSM_String -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e FSM_String.spl C:/Users/lab/Desktop/NEW/learner/FSM_String.sym 

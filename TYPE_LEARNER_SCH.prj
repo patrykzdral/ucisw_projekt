@@ -1,3 +1,4 @@
+vhdl work "VGA_Colour_Changer.vhd"
 vhdl work "PS2_RX.vhd"
 vhdl work "FSM_String.vhd"
 vhdl work "TYPE_LEARNER_SCH.vhf"

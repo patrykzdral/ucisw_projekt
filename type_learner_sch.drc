@@ -1,7 +1,7 @@
 Release 14.7 Drc P.20131013 (nt)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-Fri May 11 14:07:09 2018
+Wed May 16 16:12:22 2018
 
 drc -z TYPE_LEARNER_SCH.ncd TYPE_LEARNER_SCH.pcf
 

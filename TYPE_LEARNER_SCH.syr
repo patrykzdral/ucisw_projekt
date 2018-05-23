@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.13 secs
+Total CPU time to Xst completion: 0.14 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.13 secs
+Total CPU time to Xst completion: 0.14 secs
  
 --> Reading design: TYPE_LEARNER_SCH.prj
 
@@ -105,12 +105,15 @@ Slice Utilization Ratio Delta      : 5
 *                          HDL Compilation                              *
 =========================================================================
 Compiling vhdl file "C:/Users/lab/Desktop/NEW/learner/FSM_String.vhd" in Library work.
-Entity <fsm_string> compiled.
-Entity <fsm_string> (Architecture <rtl>) compiled.
+Architecture rtl of Entity fsm_string is up to date.
 Compiling vhdl file "C:/Users/lab/Desktop/NEW/learner/PS2_RX.vhd" in Library work.
 Architecture behavioral of Entity ps2_rx is up to date.
+Compiling vhdl file "C:/Users/lab/Desktop/NEW/learner/VGA_Colour_Changer.vhd" in Library work.
+Entity <vga_colour_changer> compiled.
+Entity <vga_colour_changer> (Architecture <behavioral>) compiled.
 Compiling vhdl file "C:/Users/lab/Desktop/NEW/learner/TYPE_LEARNER_SCH.vhf" in Library work.
-Architecture behavioral of Entity type_learner_sch is up to date.
+Entity <type_learner_sch> compiled.
+Entity <type_learner_sch> (Architecture <behavioral>) compiled.
 
 =========================================================================
 *                     Design Hierarchy Analysis                         *
@@ -121,48 +124,52 @@ Analyzing hierarchy for entity <FSM_String> in library <work> (architecture <rtl
 
 Analyzing hierarchy for entity <PS2_RX> in library <work> (architecture <behavioral>).
 
+Analyzing hierarchy for entity <VGA_Colour_Changer> in library <work> (architecture <behavioral>).
+
 
 =========================================================================
 *                            HDL Analysis                               *
 =========================================================================
 Analyzing Entity <TYPE_LEARNER_SCH> in library <work> (Architecture <behavioral>).
-WARNING:Xst:753 - "C:/Users/lab/Desktop/NEW/learner/TYPE_LEARNER_SCH.vhf" line 108: Unconnected output port 'LCD_DnI' of component 'FSM_String'.
-WARNING:Xst:2211 - "C:/Users/lab/Desktop/NEW/learner/TYPE_LEARNER_SCH.vhf" line 119: Instantiating black box module <VGAtxt48x20>.
+WARNING:Xst:2211 - "C:/Users/lab/Desktop/NEW/learner/TYPE_LEARNER_SCH.vhf" line 123: Instantiating black box module <VGAtxt48x20>.
 Entity <TYPE_LEARNER_SCH> analyzed. Unit <TYPE_LEARNER_SCH> generated.
 
 Analyzing Entity <FSM_String> in library <work> (Architecture <rtl>).
-WARNING:Xst:790 - "C:/Users/lab/Desktop/NEW/learner/FSM_String.vhd" line 94: Index value(s) does not match array range, simulation mismatch.
+WARNING:Xst:790 - "C:/Users/lab/Desktop/NEW/learner/FSM_String.vhd" line 104: Index value(s) does not match array range, simulation mismatch.
 INFO:Xst:1433 - Contents of array <romStr> may be accessed with an index that exceeds the array size. This could cause simulation mismatch.
-WARNING:Xst:790 - "C:/Users/lab/Desktop/NEW/learner/FSM_String.vhd" line 95: Index value(s) does not match array range, simulation mismatch.
+WARNING:Xst:790 - "C:/Users/lab/Desktop/NEW/learner/FSM_String.vhd" line 105: Index value(s) does not match array range, simulation mismatch.
 INFO:Xst:1433 - Contents of array <romStr2> may be accessed with an index that exceeds the array size. This could cause simulation mismatch.
-WARNING:Xst:790 - "C:/Users/lab/Desktop/NEW/learner/FSM_String.vhd" line 97: Index value(s) does not match array range, simulation mismatch.
+WARNING:Xst:790 - "C:/Users/lab/Desktop/NEW/learner/FSM_String.vhd" line 107: Index value(s) does not match array range, simulation mismatch.
 INFO:Xst:1433 - Contents of array <romStr3> may be accessed with an index that exceeds the array size. This could cause simulation mismatch.
-WARNING:Xst:790 - "C:/Users/lab/Desktop/NEW/learner/FSM_String.vhd" line 108: Index value(s) does not match array range, simulation mismatch.
+WARNING:Xst:790 - "C:/Users/lab/Desktop/NEW/learner/FSM_String.vhd" line 118: Index value(s) does not match array range, simulation mismatch.
 INFO:Xst:1433 - Contents of array <romStr> may be accessed with an index that exceeds the array size. This could cause simulation mismatch.
-WARNING:Xst:790 - "C:/Users/lab/Desktop/NEW/learner/FSM_String.vhd" line 108: Index value(s) does not match array range, simulation mismatch.
+WARNING:Xst:790 - "C:/Users/lab/Desktop/NEW/learner/FSM_String.vhd" line 118: Index value(s) does not match array range, simulation mismatch.
 INFO:Xst:1433 - Contents of array <romStr> may be accessed with an index that exceeds the array size. This could cause simulation mismatch.
-WARNING:Xst:790 - "C:/Users/lab/Desktop/NEW/learner/FSM_String.vhd" line 109: Index value(s) does not match array range, simulation mismatch.
+WARNING:Xst:790 - "C:/Users/lab/Desktop/NEW/learner/FSM_String.vhd" line 119: Index value(s) does not match array range, simulation mismatch.
 INFO:Xst:1433 - Contents of array <romStr2> may be accessed with an index that exceeds the array size. This could cause simulation mismatch.
-WARNING:Xst:790 - "C:/Users/lab/Desktop/NEW/learner/FSM_String.vhd" line 109: Index value(s) does not match array range, simulation mismatch.
+WARNING:Xst:790 - "C:/Users/lab/Desktop/NEW/learner/FSM_String.vhd" line 119: Index value(s) does not match array range, simulation mismatch.
 INFO:Xst:1433 - Contents of array <romStr2> may be accessed with an index that exceeds the array size. This could cause simulation mismatch.
-WARNING:Xst:790 - "C:/Users/lab/Desktop/NEW/learner/FSM_String.vhd" line 111: Index value(s) does not match array range, simulation mismatch.
+WARNING:Xst:790 - "C:/Users/lab/Desktop/NEW/learner/FSM_String.vhd" line 121: Index value(s) does not match array range, simulation mismatch.
 INFO:Xst:1433 - Contents of array <romStr3> may be accessed with an index that exceeds the array size. This could cause simulation mismatch.
-WARNING:Xst:790 - "C:/Users/lab/Desktop/NEW/learner/FSM_String.vhd" line 111: Index value(s) does not match array range, simulation mismatch.
+WARNING:Xst:790 - "C:/Users/lab/Desktop/NEW/learner/FSM_String.vhd" line 121: Index value(s) does not match array range, simulation mismatch.
 INFO:Xst:1433 - Contents of array <romStr3> may be accessed with an index that exceeds the array size. This could cause simulation mismatch.
-WARNING:Xst:819 - "C:/Users/lab/Desktop/NEW/learner/FSM_String.vhd" line 81: One or more signals are missing in the process sensitivity list. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
+WARNING:Xst:819 - "C:/Users/lab/Desktop/NEW/learner/FSM_String.vhd" line 91: One or more signals are missing in the process sensitivity list. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
    <whichStr>, <romStr2>, <romStr3>
-WARNING:Xst:790 - "C:/Users/lab/Desktop/NEW/learner/FSM_String.vhd" line 147: Index value(s) does not match array range, simulation mismatch.
+WARNING:Xst:790 - "C:/Users/lab/Desktop/NEW/learner/FSM_String.vhd" line 159: Index value(s) does not match array range, simulation mismatch.
 INFO:Xst:1433 - Contents of array <romStr> may be accessed with an index that exceeds the array size. This could cause simulation mismatch.
-WARNING:Xst:790 - "C:/Users/lab/Desktop/NEW/learner/FSM_String.vhd" line 149: Index value(s) does not match array range, simulation mismatch.
+WARNING:Xst:790 - "C:/Users/lab/Desktop/NEW/learner/FSM_String.vhd" line 161: Index value(s) does not match array range, simulation mismatch.
 INFO:Xst:1433 - Contents of array <romStr2> may be accessed with an index that exceeds the array size. This could cause simulation mismatch.
-WARNING:Xst:790 - "C:/Users/lab/Desktop/NEW/learner/FSM_String.vhd" line 151: Index value(s) does not match array range, simulation mismatch.
+WARNING:Xst:790 - "C:/Users/lab/Desktop/NEW/learner/FSM_String.vhd" line 163: Index value(s) does not match array range, simulation mismatch.
 INFO:Xst:1433 - Contents of array <romStr3> may be accessed with an index that exceeds the array size. This could cause simulation mismatch.
-WARNING:Xst:819 - "C:/Users/lab/Desktop/NEW/learner/FSM_String.vhd" line 158: One or more signals are missing in the process sensitivity list. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
+WARNING:Xst:819 - "C:/Users/lab/Desktop/NEW/learner/FSM_String.vhd" line 170: One or more signals are missing in the process sensitivity list. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
    <Clk>
 Entity <FSM_String> analyzed. Unit <FSM_String> generated.
 
 Analyzing Entity <PS2_RX> in library <work> (Architecture <behavioral>).
 Entity <PS2_RX> analyzed. Unit <PS2_RX> generated.
+
+Analyzing Entity <VGA_Colour_Changer> in library <work> (Architecture <behavioral>).
+Entity <VGA_Colour_Changer> analyzed. Unit <VGA_Colour_Changer> generated.
 
 
 =========================================================================
@@ -179,10 +186,10 @@ WARNING:Xst:1781 - Signal <romStr2> is used but never assigned. Tied to default 
 WARNING:Xst:1781 - Signal <romStr> is used but never assigned. Tied to default value.
     Found finite state machine <FSM_0> for signal <State>.
     -----------------------------------------------------------------------
-    | States             | 8                                              |
-    | Transitions        | 103                                            |
-    | Inputs             | 11                                             |
-    | Outputs            | 7                                              |
+    | States             | 9                                              |
+    | Transitions        | 130                                            |
+    | Inputs             | 12                                             |
+    | Outputs            | 10                                             |
     | Clock              | Clk                       (rising_edge)        |
     | Reset              | Reset                     (positive)           |
     | Reset type         | synchronous                                    |
@@ -193,18 +200,19 @@ WARNING:Xst:1781 - Signal <romStr> is used but never assigned. Tied to default v
     -----------------------------------------------------------------------
 WARNING:Xst:737 - Found 8-bit latch for signal <LCD_DI>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
     Found 30x16-bit ROM for signal <cntIdx_4_0$rom0000>.
-    Found 12x8-bit ROM for signal <$varindex0001> created at line 109.
+    Found 12x8-bit ROM for signal <$varindex0001> created at line 119.
+    Found 1-bit register for signal <LCD_DnI>.
     Found 8-bit register for signal <ascii>.
     Found 6-bit up counter for signal <cntIdx>.
-    Found 8-bit comparator equal for signal <State$cmp_eq0003> created at line 108.
-    Found 8-bit comparator equal for signal <State$cmp_eq0004> created at line 109.
-    Found 8-bit comparator equal for signal <State$cmp_eq0005> created at line 111.
+    Found 8-bit comparator equal for signal <State$cmp_eq0003> created at line 118.
+    Found 8-bit comparator equal for signal <State$cmp_eq0004> created at line 119.
+    Found 8-bit comparator equal for signal <State$cmp_eq0005> created at line 121.
     Found 2-bit up counter for signal <whichStr>.
     Summary:
 	inferred   1 Finite State Machine(s).
 	inferred   2 ROM(s).
 	inferred   2 Counter(s).
-	inferred   8 D-type flip-flop(s).
+	inferred   9 D-type flip-flop(s).
 	inferred   3 Comparator(s).
 Unit <FSM_String> synthesized.
 
@@ -234,6 +242,16 @@ Synthesizing Unit <PS2_RX>.
 Unit <PS2_RX> synthesized.
 
 
+Synthesizing Unit <VGA_Colour_Changer>.
+    Related source file is "C:/Users/lab/Desktop/NEW/learner/VGA_Colour_Changer.vhd".
+    Register <VGA_G> equivalent to <VGA_B> has been removed
+    Found 1-bit register for signal <VGA_B>.
+    Found 1-bit register for signal <VGA_R>.
+    Summary:
+	inferred   2 D-type flip-flop(s).
+Unit <VGA_Colour_Changer> synthesized.
+
+
 Synthesizing Unit <TYPE_LEARNER_SCH>.
     Related source file is "C:/Users/lab/Desktop/NEW/learner/TYPE_LEARNER_SCH.vhf".
 WARNING:Xst:653 - Signal <XLXI_2_ScrollEn_openSignal> is used but never assigned. This sourceless signal will be automatically connected to value 0.
@@ -253,8 +271,8 @@ Macro Statistics
  2-bit up counter                                      : 1
  4-bit up counter                                      : 1
  6-bit up counter                                      : 1
-# Registers                                            : 14
- 1-bit register                                        : 13
+# Registers                                            : 17
+ 1-bit register                                        : 16
  8-bit register                                        : 1
 # Latches                                              : 1
  8-bit latch                                           : 1
@@ -279,18 +297,19 @@ Optimizing FSM <XLXI_8/state/FSM> on signal <state[1:2]> with user encoding.
  ps2_word_ok | 10
 -------------------------
 Analyzing FSM <FSM_0> for best encoding.
-Optimizing FSM <XLXI_1/State/FSM> on signal <State[1:3]> with user encoding.
+Optimizing FSM <XLXI_1/State/FSM> on signal <State[1:4]> with gray encoding.
 -----------------------
  State     | Encoding
 -----------------------
- sreset    | 000
- swe       | 001
- sloop     | 010
- sline     | 011
- sline2    | 100
- swe2      | 101
- sprint    | 110
- swebefore | 111
+ sreset    | 0000
+ swe       | 0001
+ sloop     | 0011
+ sline     | 0010
+ sline2    | 0101
+ swe2      | 0110
+ sprint    | 1100
+ swebefore | 0111
+ serror    | 0100
 -----------------------
 Reading core <VGAtxt48x20.ngc>.
 Loading core <VGAtxt48x20> for timing and area information for instance <XLXI_2>.
@@ -309,8 +328,8 @@ Macro Statistics
  2-bit up counter                                      : 1
  4-bit up counter                                      : 1
  6-bit up counter                                      : 1
-# Registers                                            : 21
- Flip-Flops                                            : 21
+# Registers                                            : 24
+ Flip-Flops                                            : 24
 # Latches                                              : 1
  8-bit latch                                           : 1
 # Comparators                                          : 3
@@ -333,6 +352,8 @@ Optimizing unit <PS2_RX> ...
 Mapping all equations...
 Building and optimizing final netlist ...
 Found area constraint ratio of 100 (+ 5) on block TYPE_LEARNER_SCH, actual ratio is 4.
+FlipFlop XLXI_1/cntIdx_1 has been replicated 1 time(s)
+FlipFlop XLXI_1/cntIdx_2 has been replicated 1 time(s)
 
 Final Macro Processing ...
 
@@ -340,8 +361,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 37
- Flip-Flops                                            : 37
+# Registers                                            : 43
+ Flip-Flops                                            : 43
 
 =========================================================================
 
@@ -370,37 +391,35 @@ Design Statistics
 # IOs                              : 9
 
 Cell Usage :
-# BELS                             : 544
+# BELS                             : 551
 #      AND2                        : 1
 #      AND3                        : 4
 #      AND3B1                      : 4
-#      BUF                         : 3
 #      GND                         : 2
 #      INV                         : 12
 #      LUT1                        : 43
 #      LUT2                        : 43
-#      LUT2_D                      : 1
-#      LUT2_L                      : 7
-#      LUT3                        : 65
-#      LUT3_D                      : 4
-#      LUT3_L                      : 3
-#      LUT4                        : 167
-#      LUT4_D                      : 12
-#      LUT4_L                      : 17
+#      LUT2_L                      : 6
+#      LUT3                        : 71
+#      LUT3_D                      : 3
+#      LUT3_L                      : 4
+#      LUT4                        : 173
+#      LUT4_D                      : 11
+#      LUT4_L                      : 16
 #      MUXCY                       : 53
-#      MUXF5                       : 36
+#      MUXF5                       : 38
 #      MUXF5_L                     : 2
 #      MUXF6                       : 6
 #      OR2                         : 5
 #      VCC                         : 2
 #      XOR2                        : 1
 #      XORCY                       : 51
-# FlipFlops/Latches                : 142
-#      FD                          : 37
+# FlipFlops/Latches                : 148
+#      FD                          : 39
 #      FDE                         : 33
-#      FDR                         : 17
-#      FDRE                        : 45
-#      FDRS                        : 2
+#      FDR                         : 18
+#      FDRE                        : 47
+#      FDRS                        : 3
 #      FDSE                        : 1
 #      LDCPE                       : 7
 # RAMS                             : 2
@@ -420,10 +439,10 @@ Device utilization summary:
 
 Selected Device : 3s500efg320-4 
 
- Number of Slices:                      209  out of   4656     4%  
- Number of Slice Flip Flops:            142  out of   9312     1%  
- Number of 4 input LUTs:                377  out of   9312     4%  
-    Number used as logic:               374
+ Number of Slices:                      213  out of   4656     4%  
+ Number of Slice Flip Flops:            148  out of   9312     1%  
+ Number of 4 input LUTs:                385  out of   9312     4%  
+    Number used as logic:               382
     Number used as Shift registers:       3
  Number of IOs:                           9
  Number of bonded IOBs:                   9  out of    232     3%  
@@ -451,7 +470,7 @@ Clock Information:
 ---------------------------------------------------+-------------------------+-------+
 Clock Signal                                       | Clock buffer(FF name)   | Load  |
 ---------------------------------------------------+-------------------------+-------+
-Clk_50MHz                                          | BUFGP                   | 140   |
+Clk_50MHz                                          | BUFGP                   | 146   |
 XLXI_1/State_cmp_eq0002(XLXI_1/State_cmp_eq00021:O)| NONE(*)(XLXI_1/LCD_DI_6)| 7     |
 ---------------------------------------------------+-------------------------+-------+
 (*) This 1 clock signal(s) are generated by combinatorial logic,
@@ -485,8 +504,8 @@ Timing Summary:
 Speed Grade: -4
 
    Minimum period: 9.574ns (Maximum Frequency: 104.450MHz)
-   Minimum input arrival time before clock: 2.660ns
-   Maximum output required time after clock: 5.518ns
+   Minimum input arrival time before clock: 2.716ns
+   Maximum output required time after clock: 4.450ns
    Maximum combinational path delay: No path found
 
 Timing Detail:
@@ -496,7 +515,7 @@ All values displayed in nanoseconds (ns)
 =========================================================================
 Timing constraint: Default period analysis for Clock 'Clk_50MHz'
   Clock period: 9.574ns (frequency: 104.450MHz)
-  Total number of paths / destination ports: 3517 / 322
+  Total number of paths / destination ports: 3535 / 334
 -------------------------------------------------------------------------
 Delay:               9.574ns (Levels of Logic = 9)
   Source:            XLXI_2/XLXI_147/Mrom_DO_rom0000 (RAM)
@@ -527,9 +546,9 @@ Delay:               9.574ns (Levels of Logic = 9)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'Clk_50MHz'
-  Total number of paths / destination ports: 5 / 5
+  Total number of paths / destination ports: 6 / 6
 -------------------------------------------------------------------------
-Offset:              2.660ns (Levels of Logic = 1)
+Offset:              2.716ns (Levels of Logic = 1)
   Source:            BTN_SOUTH (PAD)
   Destination:       XLXI_1/State_FSM_FFd1 (FF)
   Destination Clock: Clk_50MHz rising
@@ -538,44 +557,43 @@ Offset:              2.660ns (Levels of Logic = 1)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O             3   1.218   0.531  BTN_SOUTH_IBUF (BTN_SOUTH_IBUF)
+     IBUF:I->O             4   1.218   0.587  BTN_SOUTH_IBUF (BTN_SOUTH_IBUF)
      FDR:R                     0.911          XLXI_1/State_FSM_FFd1
     ----------------------------------------
-    Total                      2.660ns (2.129ns logic, 0.531ns route)
-                                       (80.0% logic, 20.0% route)
+    Total                      2.716ns (2.129ns logic, 0.587ns route)
+                                       (78.4% logic, 21.6% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'Clk_50MHz'
   Total number of paths / destination ports: 5 / 5
 -------------------------------------------------------------------------
-Offset:              5.518ns (Levels of Logic = 3)
-  Source:            XLXI_2/XLXI_115/XLXI_155/PixOut (FF)
-  Destination:       VGA_B (PAD)
+Offset:              4.450ns (Levels of Logic = 2)
+  Source:            XLXI_2/I_ModeCtrl/HSync (FF)
+  Destination:       VGA_HS (PAD)
   Source Clock:      Clk_50MHz rising
 
-  Data Path: XLXI_2/XLXI_115/XLXI_155/PixOut to VGA_B
+  Data Path: XLXI_2/I_ModeCtrl/HSync to VGA_HS
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FD:C->Q               3   0.591   0.531  XLXI_115/XLXI_155/PixOut (VGA_RGB)
+     FD:C->Q               4   0.591   0.587  I_ModeCtrl/HSync (VGA_HS)
      end scope: 'XLXI_2'
-     BUF:I->O              1   0.704   0.420  XLXI_5 (VGA_R_OBUF)
-     OBUF:I->O                 3.272          VGA_R_OBUF (VGA_R)
+     OBUF:I->O                 3.272          VGA_HS_OBUF (VGA_HS)
     ----------------------------------------
-    Total                      5.518ns (4.567ns logic, 0.951ns route)
-                                       (82.8% logic, 17.2% route)
+    Total                      4.450ns (3.863ns logic, 0.587ns route)
+                                       (86.8% logic, 13.2% route)
 
 =========================================================================
 
 
 Total REAL time to Xst completion: 8.00 secs
-Total CPU time to Xst completion: 7.79 secs
+Total CPU time to Xst completion: 8.21 secs
  
 --> 
 
-Total memory usage is 219952 kilobytes
+Total memory usage is 228292 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :   28 (   0 filtered)
+Number of warnings :   27 (   0 filtered)
 Number of infos    :   13 (   0 filtered)
 

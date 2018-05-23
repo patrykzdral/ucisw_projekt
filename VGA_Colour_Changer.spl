@@ -1,0 +1,9 @@
+[Inputs]
+CLK
+IS_ERROR
+VGA_RGB
+[Outputs]
+VGA_R
+VGA_G
+VGA_B
+[BiDir]

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <symbol version="7" name="FSM_String">
     <symboltype>BLOCK</symboltype>
-    <timestamp>2018-4-27T10:35:40</timestamp>
+    <timestamp>2018-5-16T13:11:12</timestamp>
     <pin polarity="Input" x="0" y="-160" name="Clk" />
     <pin polarity="Input" x="0" y="-96" name="Reset" />
     <pin polarity="Input" x="0" y="-32" name="LCD_Busy" />

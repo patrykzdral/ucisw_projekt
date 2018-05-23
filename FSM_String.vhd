@@ -29,7 +29,8 @@ architecture RTL of FSM_String is
 	sLine2,
     sWE2,
     sPrint,
-	 sWEBefore
+	sWEBefore,
+	sError
     );
   signal State, nextState : state_type; 
 
@@ -55,14 +56,23 @@ begin
     if rising_edge( Clk ) then
       if State = sReset then
         cntIdx <= ( others => '0' );
+		LCD_DnI  <= '0';
       elsif State = sLine then
         cntIdx <= ( others => '0' );
+		LCD_DnI  <= '0';
       elsif State = sWEBefore then
          cntIdx <= cntIdx + 1;
+		 LCD_DnI  <= '0';
       elsif State = sWE then
         cntIdx <= cntIdx + 1;
+		LCD_DnI  <= '0';
 	  elsif State = sLine2 then
         whichStr <= whichStr + 1;
+		LCD_DnI  <= '0';
+	  elsif State = sError then
+	     LCD_DnI  <= '1';
+	  elsif State = sWe2 then
+	     LCD_DnI  <= '0';
       end if;
     end if;
   end process;
@@ -111,19 +121,21 @@ begin
 			nextState <= sWEBefore;   
 		elsif (whichStr = 2 and romStr3( conv_integer( cntIdx ) ) /= NUL and ( ascii = ('0' & CONV_STD_LOGIC_VECTOR( CHARACTER'Pos( romStr3( conv_integer( cntIdx ) ) ), 7 ) ) )) then
 			nextState <= sWEBefore;
-        elsif (whichStr = 0 and cntIdx = nStrSize - 1) then	
+        elsif (whichStr = 0 and cntIdx = nStrSize - 1 and ascii = x"13") then	
 			nextState <= sLine2;
-        elsif (whichStr = 1 and cntIdx = nStrSize2 - 1) then	
+        elsif (whichStr = 1 and cntIdx = nStrSize2 - 1 and ascii = x"13") then	
 			nextState <= sLine2;
-        elsif (whichStr = 2 and cntIdx = nStrSize3 - 1) then	
+        elsif (whichStr = 2 and cntIdx = nStrSize3 - 1 and ascii = x"13") then	
 			nextState <= sLine2;
 		else
-            nextState <= sWE2;
+            nextState <= sError;
          end if;
       when sWEBefore =>
 			nextState <= sPrint;
       when sPrint =>
          nextState <= sWE2;
+	  when sError =>
+         nextState <= sWE2 after 1000 ns ; 
 		 
 	 when sLine2 =>
 		nextState <= sReset;
@@ -132,7 +144,7 @@ begin
   
   -- Outputs
   LCD_WE  <= '1' when (State = sWE or State = sWEBefore) else '0'; -- p.zdral zmiana
-  LCD_DnI <= '1';
+  
   --LCD_DI <= '0' & 
     --CONV_STD_LOGIC_VECTOR( CHARACTER'Pos( romStr( conv_integer( cntIdx ) ) ), 7 );
   New_Line <= '1' when (State = sLine or State = sLine2) else '0';  
@@ -183,7 +195,8 @@ begin
       WHEN x"22" => ascii <= x"78"; --x
       WHEN x"35" => ascii <= x"79"; --y
       WHEN x"1A" => ascii <= x"7A"; --z
-      WHEN x"29" => ascii <= x"20"; --space
+      WHEN x"29" => ascii <= x"20"; --space 
+	  WHEN x"5A" => ascii <= x"13"; --enter
       WHEN OTHERS => ascii <= x"00"; --error code
     END CASE;
     end if;

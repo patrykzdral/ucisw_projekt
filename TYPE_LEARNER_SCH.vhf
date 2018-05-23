@@ -7,11 +7,11 @@
 -- \   \   \/     Version : 14.7
 --  \   \         Application : sch2hdl
 --  /   /         Filename : TYPE_LEARNER_SCH.vhf
--- /___/   /\     Timestamp : 04/27/2018 12:42:09
+-- /___/   /\     Timestamp : 05/16/2018 16:11:38
 -- \   \  /  \ 
 --  \___\/\___\ 
 --
---Command: sch2hdl -intstyle ise -family spartan3e -flat -suppress -vhdl C:/Users/lab/Desktop/learner-v2/learner/learner/learner/TYPE_LEARNER_SCH.vhf -w C:/Users/lab/Desktop/learner-v2/learner/learner/learner/TYPE_LEARNER_SCH.sch
+--Command: sch2hdl -intstyle ise -family spartan3e -flat -suppress -vhdl C:/Users/lab/Desktop/NEW/learner/TYPE_LEARNER_SCH.vhf -w C:/Users/lab/Desktop/NEW/learner/TYPE_LEARNER_SCH.sch
 --Design Name: TYPE_LEARNER_SCH
 --Device: spartan3e
 --Purpose:
@@ -43,11 +43,12 @@ architecture BEHAVIORAL of TYPE_LEARNER_SCH is
    signal XLXN_2                        : std_logic;
    signal XLXN_3                        : std_logic;
    signal XLXN_4                        : std_logic;
-   signal XLXN_8                        : std_logic;
-   signal XLXN_9                        : std_logic;
    signal XLXN_25                       : std_logic;
    signal XLXN_26                       : std_logic_vector (7 downto 0);
    signal XLXN_27                       : std_logic;
+   signal XLXN_33                       : std_logic;
+   signal XLXN_34                       : std_logic;
+   signal XLXN_35                       : std_logic;
    signal XLXI_2_Goto00_openSignal      : std_logic;
    signal XLXI_2_ScrollClear_openSignal : std_logic;
    signal XLXI_2_ScrollEn_openSignal    : std_logic;
@@ -90,12 +91,6 @@ architecture BEHAVIORAL of TYPE_LEARNER_SCH is
    end component;
    attribute BOX_TYPE of GND : component is "BLACK_BOX";
    
-   component BUF
-      port ( I : in    std_logic; 
-             O : out   std_logic);
-   end component;
-   attribute BOX_TYPE of BUF : component is "BLACK_BOX";
-   
    component PS2_RX
       port ( PS2_CLK  : in    std_logic; 
              PS2_DATA : in    std_logic; 
@@ -104,15 +99,24 @@ architecture BEHAVIORAL of TYPE_LEARNER_SCH is
              DO       : out   std_logic_vector (7 downto 0));
    end component;
    
+   component VGA_Colour_Changer
+      port ( CLK      : in    std_logic; 
+             IS_ERROR : in    std_logic; 
+             VGA_RGB  : in    std_logic; 
+             VGA_R    : out   std_logic; 
+             VGA_G    : out   std_logic; 
+             VGA_B    : out   std_logic);
+   end component;
+   
 begin
    XLXI_1 : FSM_String
       port map (Clk=>Clk_50MHz,
-                LCD_Busy=>XLXN_8,
+                LCD_Busy=>XLXN_34,
                 PS2_DoRdy=>XLXN_25,
                 PS2_Input(7 downto 0)=>XLXN_26(7 downto 0),
                 Reset=>BTN_SOUTH,
                 LCD_DI(7 downto 0)=>XLXN_1(7 downto 0),
-                LCD_DnI=>open,
+                LCD_DnI=>XLXN_33,
                 LCD_WE=>XLXN_2,
                 New_Line=>XLXN_27);
    
@@ -127,9 +131,9 @@ begin
                 NewLine=>XLXN_27,
                 ScrollClear=>XLXI_2_ScrollClear_openSignal,
                 ScrollEn=>XLXI_2_ScrollEn_openSignal,
-                Busy=>XLXN_8,
+                Busy=>XLXN_34,
                 VGA_HS=>VGA_HS,
-                VGA_RGB=>XLXN_9,
+                VGA_RGB=>XLXN_35,
                 VGA_VS=>VGA_VS);
    
    XLXI_3 : VCC
@@ -138,24 +142,20 @@ begin
    XLXI_4 : GND
       port map (G=>XLXN_4);
    
-   XLXI_5 : BUF
-      port map (I=>XLXN_9,
-                O=>VGA_R);
-   
-   XLXI_6 : BUF
-      port map (I=>XLXN_9,
-                O=>VGA_G);
-   
-   XLXI_7 : BUF
-      port map (I=>XLXN_9,
-                O=>VGA_B);
-   
    XLXI_8 : PS2_RX
       port map (CLK=>Clk_50MHz,
                 PS2_CLK=>PS2_CLK,
                 PS2_DATA=>PS2_DATA,
                 DO(7 downto 0)=>XLXN_26(7 downto 0),
                 DO_RDY=>XLXN_25);
+   
+   XLXI_9 : VGA_Colour_Changer
+      port map (CLK=>Clk_50MHz,
+                IS_ERROR=>XLXN_33,
+                VGA_RGB=>XLXN_35,
+                VGA_B=>VGA_B,
+                VGA_G=>VGA_G,
+                VGA_R=>VGA_R);
    
 end BEHAVIORAL;
 
