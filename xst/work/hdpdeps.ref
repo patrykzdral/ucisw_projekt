@@ -1,4 +1,4 @@
-V3 29
+V3 33
 FL C:/Users/lab/Desktop/learner-v2/learner/learner/learner/FSM_String.vhd 2018/04/27.13:48:53 P.20131013
 FL C:/Users/lab/Desktop/learner-v2/learner/learner/learner/PS2_RX.vhd 2018/03/26.13:13:47 P.20131013
 FL C:/Users/lab/Desktop/learner-v2/learner/learner/learner/TYPE_LEARNER_SCH.vhf 2018/04/27.12:42:09 P.20131013
@@ -14,30 +14,38 @@ AR work/PS2_RX_SCH/BEHAVIORAL 1523618471 \
       EN work/PS2_RX_SCH 1523618470 CP RS232 CP PS2_RX
 FL C:/Users/lab/Desktop/learner/learner/learner/TYPE_LEARNER_SCH.vhf 2018/04/13.13:41:00 P.20131013
 FL C:/Users/lab/Desktop/NEW/learner/FSM_String.vhd 2018/05/16.15:22:15 P.20131013
-EN work/FSM_String 1526479901 FL C:/Users/lab/Desktop/NEW/learner/FSM_String.vhd \
+FL C:/Users/lab/Desktop/NEW/learner/PS2_RX.vhd 2018/03/26.13:13:48 P.20131013
+FL C:/Users/lab/Desktop/NEW/learner/TYPE_LEARNER_SCH.vhf 2018/05/16.16:11:38 P.20131013
+FL C:/Users/lab/Desktop/NEW/learner/VGA_Colour_Changer.vhd 2018/05/16.16:08:51 P.20131013
+FL D:/mrfarinq/Projects/Xilinx/projects/zaliczenie/uciswowe_gowno/FSM_String.vhd 2018/05/24.02:19:52 P.20131013
+EN work/FSM_String 1527122661 \
+      FL D:/mrfarinq/Projects/Xilinx/projects/zaliczenie/uciswowe_gowno/FSM_String.vhd \
       PB ieee/std_logic_1164 1381692176 PB ieee/std_logic_arith 1381692177 \
       PB ieee/STD_LOGIC_UNSIGNED 1381692179
-AR work/FSM_String/RTL 1526479902 \
-      FL C:/Users/lab/Desktop/NEW/learner/FSM_String.vhd EN work/FSM_String 1526479901
-FL C:/Users/lab/Desktop/NEW/learner/PS2_RX.vhd 2018/03/26.13:13:48 P.20131013
-EN work/PS2_RX 1526479903 FL C:/Users/lab/Desktop/NEW/learner/PS2_RX.vhd \
+AR work/FSM_String/RTL 1527122662 \
+      FL D:/mrfarinq/Projects/Xilinx/projects/zaliczenie/uciswowe_gowno/FSM_String.vhd \
+      EN work/FSM_String 1527122661
+FL D:/mrfarinq/Projects/Xilinx/projects/zaliczenie/uciswowe_gowno/PS2_RX.vhd 2018/05/24.02:19:46 P.20131013
+EN work/PS2_RX 1527122657 \
+      FL D:/mrfarinq/Projects/Xilinx/projects/zaliczenie/uciswowe_gowno/PS2_RX.vhd \
       PB ieee/std_logic_1164 1381692176 PB ieee/NUMERIC_STD 1381692181 \
       PB ieee/STD_LOGIC_SIGNED 1381692178
-AR work/PS2_RX/Behavioral 1526479904 \
-      FL C:/Users/lab/Desktop/NEW/learner/PS2_RX.vhd EN work/PS2_RX 1526479903
-FL C:/Users/lab/Desktop/NEW/learner/TYPE_LEARNER_SCH.vhf 2018/05/16.16:11:38 P.20131013
-EN work/TYPE_LEARNER_SCH 1526479907 \
-      FL C:/Users/lab/Desktop/NEW/learner/TYPE_LEARNER_SCH.vhf \
+AR work/PS2_RX/Behavioral 1527122658 \
+      FL D:/mrfarinq/Projects/Xilinx/projects/zaliczenie/uciswowe_gowno/PS2_RX.vhd \
+      EN work/PS2_RX 1527122657
+FL D:/mrfarinq/Projects/Xilinx/projects/zaliczenie/uciswowe_gowno/TYPE_LEARNER_SCH.vhf 2018/05/24.02:44:11 P.20131013
+EN work/TYPE_LEARNER_SCH 1527122663 \
+      FL D:/mrfarinq/Projects/Xilinx/projects/zaliczenie/uciswowe_gowno/TYPE_LEARNER_SCH.vhf \
       PB ieee/std_logic_1164 1381692176 PB ieee/NUMERIC_STD 1381692181 LB UNISIM \
       PH unisim/VCOMPONENTS 1381692182
-AR work/TYPE_LEARNER_SCH/BEHAVIORAL 1526479908 \
-      FL C:/Users/lab/Desktop/NEW/learner/TYPE_LEARNER_SCH.vhf \
-      EN work/TYPE_LEARNER_SCH 1526479907 CP FSM_String CP VGAtxt48x20 CP VCC CP GND \
-      CP PS2_RX CP VGA_Colour_Changer
-FL C:/Users/lab/Desktop/NEW/learner/VGA_Colour_Changer.vhd 2018/05/16.16:08:51 P.20131013
-EN work/VGA_Colour_Changer 1526479905 \
-      FL C:/Users/lab/Desktop/NEW/learner/VGA_Colour_Changer.vhd \
+AR work/TYPE_LEARNER_SCH/BEHAVIORAL 1527122664 \
+      FL D:/mrfarinq/Projects/Xilinx/projects/zaliczenie/uciswowe_gowno/TYPE_LEARNER_SCH.vhf \
+      EN work/TYPE_LEARNER_SCH 1527122663 CP PS2_RX CP VGA_Colour_Changer \
+      CP FSM_String CP VCC CP GND CP VGAtxt48x20
+FL D:/mrfarinq/Projects/Xilinx/projects/zaliczenie/uciswowe_gowno/VGA_Colour_Changer.vhd 2018/05/24.02:06:41 P.20131013
+EN work/VGA_Colour_Changer 1527122659 \
+      FL D:/mrfarinq/Projects/Xilinx/projects/zaliczenie/uciswowe_gowno/VGA_Colour_Changer.vhd \
       PB ieee/std_logic_1164 1381692176
-AR work/VGA_Colour_Changer/Behavioral 1526479906 \
-      FL C:/Users/lab/Desktop/NEW/learner/VGA_Colour_Changer.vhd \
-      EN work/VGA_Colour_Changer 1526479905
+AR work/VGA_Colour_Changer/Behavioral 1527122660 \
+      FL D:/mrfarinq/Projects/Xilinx/projects/zaliczenie/uciswowe_gowno/VGA_Colour_Changer.vhd \
+      EN work/VGA_Colour_Changer 1527122659

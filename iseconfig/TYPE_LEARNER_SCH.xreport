@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2018-05-16T16:10:21</DateModified>
+  <DateModified>2018-05-24T02:37:37</DateModified>
   <ModuleName>TYPE_LEARNER_SCH</ModuleName>
   <SummaryTimeStamp>Unknown</SummaryTimeStamp>
-  <SavedFilePath>C:/Users/lab/Desktop/NEW/learner/iseconfig/TYPE_LEARNER_SCH.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>C:/Users/lab/Desktop/NEW/learner\</ImplementationReportsDirectory>
+  <SavedFilePath>D:/mrfarinq/Projects/Xilinx/projects/zaliczenie/uciswowe_gowno/iseconfig/TYPE_LEARNER_SCH.xreport</SavedFilePath>
+  <ImplementationReportsDirectory>D:/mrfarinq/Projects/Xilinx/projects/zaliczenie/uciswowe_gowno\</ImplementationReportsDirectory>
   <DateInitialized>2018-05-10T22:37:35</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>
