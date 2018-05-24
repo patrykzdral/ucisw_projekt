@@ -6,12 +6,10 @@
         <trait edittrait="all:0" />
     </attr>
     <netlist>
-        <signal name="Clk_50MHz" />
         <signal name="BTN_SOUTH" />
         <signal name="XLXN_14" />
         <signal name="XLXN_15(7:0)" />
         <signal name="PS2_DATA" />
-        <signal name="PS2_CLK" />
         <signal name="XLXN_18" />
         <signal name="XLXN_20(7:0)" />
         <signal name="XLXN_26" />
@@ -24,17 +22,17 @@
         <signal name="VGA_R" />
         <signal name="VGA_G" />
         <signal name="VGA_B" />
-        <signal name="XLXN_37" />
-        <signal name="XLXN_39(7:0)" />
-        <port polarity="Input" name="Clk_50MHz" />
+        <signal name="Clk_50MHz" />
+        <signal name="PS2_CLK" />
         <port polarity="Input" name="BTN_SOUTH" />
         <port polarity="Input" name="PS2_DATA" />
-        <port polarity="Input" name="PS2_CLK" />
         <port polarity="Output" name="VGA_HS" />
         <port polarity="Output" name="VGA_VS" />
         <port polarity="Output" name="VGA_R" />
         <port polarity="Output" name="VGA_G" />
         <port polarity="Output" name="VGA_B" />
+        <port polarity="Input" name="Clk_50MHz" />
+        <port polarity="Input" name="PS2_CLK" />
         <blockdef name="FSM_String">
             <timestamp>2018-5-24T0:20:3</timestamp>
             <line x2="0" y1="416" y2="416" x1="64" />
@@ -112,9 +110,9 @@
             <blockpin signalname="VGA_B" name="VGA_B" />
         </block>
         <block symbolname="PS2_RX" name="XLXI_8">
-            <blockpin signalname="Clk_50MHz" name="PS2_CLK" />
+            <blockpin signalname="PS2_CLK" name="PS2_CLK" />
             <blockpin signalname="PS2_DATA" name="PS2_DATA" />
-            <blockpin signalname="PS2_CLK" name="CLK" />
+            <blockpin signalname="Clk_50MHz" name="CLK" />
             <blockpin signalname="XLXN_14" name="DO_RDY" />
             <blockpin signalname="XLXN_15(7:0)" name="DO(7:0)" />
         </block>
@@ -154,22 +152,6 @@
     <sheet sheetnum="1" width="3520" height="2720">
         <instance x="1136" y="624" name="XLXI_10" orien="R0">
         </instance>
-        <branch name="Clk_50MHz">
-            <wire x2="560" y1="256" y2="256" x1="496" />
-            <wire x2="1040" y1="256" y2="256" x1="560" />
-            <wire x2="1040" y1="256" y2="464" x1="1040" />
-            <wire x2="1136" y1="464" y2="464" x1="1040" />
-            <wire x2="1616" y1="256" y2="256" x1="1040" />
-            <wire x2="1616" y1="256" y2="1072" x1="1616" />
-            <wire x2="1616" y1="1072" y2="1136" x1="1616" />
-            <wire x2="1872" y1="1136" y2="1136" x1="1616" />
-            <wire x2="1872" y1="1072" y2="1072" x1="1616" />
-            <wire x2="2512" y1="256" y2="256" x1="1616" />
-            <wire x2="2512" y1="256" y2="464" x1="2512" />
-            <wire x2="2640" y1="464" y2="464" x1="2512" />
-            <wire x2="560" y1="256" y2="720" x1="560" />
-            <wire x2="576" y1="720" y2="720" x1="560" />
-        </branch>
         <branch name="BTN_SOUTH">
             <wire x2="1136" y1="528" y2="528" x1="1072" />
         </branch>
@@ -179,12 +161,7 @@
             <wire x2="1088" y1="720" y2="848" x1="1088" />
         </branch>
         <branch name="PS2_DATA">
-            <wire x2="560" y1="784" y2="784" x1="496" />
-            <wire x2="576" y1="784" y2="784" x1="560" />
-        </branch>
-        <branch name="PS2_CLK">
-            <wire x2="560" y1="848" y2="848" x1="480" />
-            <wire x2="576" y1="848" y2="848" x1="560" />
+            <wire x2="576" y1="784" y2="784" x1="496" />
         </branch>
         <branch name="XLXN_20(7:0)">
             <wire x2="1712" y1="976" y2="976" x1="1520" />
@@ -253,9 +230,29 @@
             <wire x2="1008" y1="720" y2="1040" x1="1008" />
             <wire x2="1136" y1="1040" y2="1040" x1="1008" />
         </branch>
-        <iomarker fontsize="28" x="496" y="256" name="Clk_50MHz" orien="R180" />
         <iomarker fontsize="28" x="1072" y="528" name="BTN_SOUTH" orien="R180" />
         <iomarker fontsize="28" x="496" y="784" name="PS2_DATA" orien="R180" />
-        <iomarker fontsize="28" x="480" y="848" name="PS2_CLK" orien="R180" />
+        <branch name="Clk_50MHz">
+            <wire x2="560" y1="256" y2="256" x1="496" />
+            <wire x2="832" y1="256" y2="256" x1="560" />
+            <wire x2="832" y1="256" y2="464" x1="832" />
+            <wire x2="1136" y1="464" y2="464" x1="832" />
+            <wire x2="1616" y1="256" y2="256" x1="832" />
+            <wire x2="2544" y1="256" y2="256" x1="1616" />
+            <wire x2="2544" y1="256" y2="464" x1="2544" />
+            <wire x2="2640" y1="464" y2="464" x1="2544" />
+            <wire x2="1616" y1="256" y2="1072" x1="1616" />
+            <wire x2="1616" y1="1072" y2="1136" x1="1616" />
+            <wire x2="1872" y1="1136" y2="1136" x1="1616" />
+            <wire x2="1872" y1="1072" y2="1072" x1="1616" />
+            <wire x2="560" y1="256" y2="848" x1="560" />
+            <wire x2="576" y1="848" y2="848" x1="560" />
+        </branch>
+        <branch name="PS2_CLK">
+            <wire x2="560" y1="720" y2="720" x1="480" />
+            <wire x2="576" y1="720" y2="720" x1="560" />
+        </branch>
+        <iomarker fontsize="28" x="480" y="720" name="PS2_CLK" orien="R180" />
+        <iomarker fontsize="28" x="496" y="256" name="Clk_50MHz" orien="R180" />
     </sheet>
 </drawing>

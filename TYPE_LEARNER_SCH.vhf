@@ -7,7 +7,7 @@
 -- \   \   \/     Version : 14.7
 --  \   \         Application : sch2hdl
 --  /   /         Filename : TYPE_LEARNER_SCH.vhf
--- /___/   /\     Timestamp : 05/24/2018 02:44:11
+-- /___/   /\     Timestamp : 05/24/2018 03:08:15
 -- \   \  /  \ 
 --  \___\/\___\ 
 --
@@ -108,8 +108,8 @@ architecture BEHAVIORAL of TYPE_LEARNER_SCH is
    
 begin
    XLXI_8 : PS2_RX
-      port map (CLK=>PS2_CLK,
-                PS2_CLK=>Clk_50MHz,
+      port map (CLK=>Clk_50MHz,
+                PS2_CLK=>PS2_CLK,
                 PS2_DATA=>PS2_DATA,
                 DO(7 downto 0)=>XLXN_15(7 downto 0),
                 DO_RDY=>XLXN_14);

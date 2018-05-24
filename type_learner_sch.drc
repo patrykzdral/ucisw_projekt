@@ -1,11 +1,11 @@
-Release 14.7 Drc P.20131013 (nt)
+Release 14.7 Drc P.20131013 (nt64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-Wed May 16 16:12:22 2018
+Thu May 24 03:09:09 2018
 
 drc -z TYPE_LEARNER_SCH.ncd TYPE_LEARNER_SCH.pcf
 
-WARNING:PhysDesignRules:372 - Gated clock. Clock net XLXI_1/State_cmp_eq0002 is
+WARNING:PhysDesignRules:372 - Gated clock. Clock net XLXI_10/state_cmp_eq0002 is
    sourced by a combinatorial pin. This is not good design practice. Use the CE
    pin to control the loading of data into the flip-flop.
 DRC detected 0 errors and 1 warnings.  Please see the previously displayed

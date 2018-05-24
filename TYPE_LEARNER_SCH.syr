@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.23 secs
+Total CPU time to Xst completion: 0.09 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.23 secs
+Total CPU time to Xst completion: 0.09 secs
  
 --> Reading design: TYPE_LEARNER_SCH.prj
 
@@ -104,23 +104,12 @@ Slice Utilization Ratio Delta      : 5
 =========================================================================
 *                          HDL Compilation                              *
 =========================================================================
-WARNING:HDLParsers:3607 - Unit work/TYPE_LEARNER_SCH is now defined in a different file.  It was defined in "C:/Users/lab/Desktop/NEW/learner/TYPE_LEARNER_SCH.vhf", and is now defined in "D:/mrfarinq/Projects/Xilinx/projects/zaliczenie/uciswowe_gowno/TYPE_LEARNER_SCH.vhf".
-WARNING:HDLParsers:3607 - Unit work/TYPE_LEARNER_SCH/BEHAVIORAL is now defined in a different file.  It was defined in "C:/Users/lab/Desktop/NEW/learner/TYPE_LEARNER_SCH.vhf", and is now defined in "D:/mrfarinq/Projects/Xilinx/projects/zaliczenie/uciswowe_gowno/TYPE_LEARNER_SCH.vhf".
-WARNING:HDLParsers:3607 - Unit work/FSM_String is now defined in a different file.  It was defined in "C:/Users/lab/Desktop/NEW/learner/FSM_String.vhd", and is now defined in "D:/mrfarinq/Projects/Xilinx/projects/zaliczenie/uciswowe_gowno/FSM_String.vhd".
-WARNING:HDLParsers:3607 - Unit work/FSM_String/RTL is now defined in a different file.  It was defined in "C:/Users/lab/Desktop/NEW/learner/FSM_String.vhd", and is now defined in "D:/mrfarinq/Projects/Xilinx/projects/zaliczenie/uciswowe_gowno/FSM_String.vhd".
-WARNING:HDLParsers:3607 - Unit work/PS2_RX is now defined in a different file.  It was defined in "C:/Users/lab/Desktop/NEW/learner/PS2_RX.vhd", and is now defined in "D:/mrfarinq/Projects/Xilinx/projects/zaliczenie/uciswowe_gowno/PS2_RX.vhd".
-WARNING:HDLParsers:3607 - Unit work/PS2_RX/Behavioral is now defined in a different file.  It was defined in "C:/Users/lab/Desktop/NEW/learner/PS2_RX.vhd", and is now defined in "D:/mrfarinq/Projects/Xilinx/projects/zaliczenie/uciswowe_gowno/PS2_RX.vhd".
-WARNING:HDLParsers:3607 - Unit work/VGA_Colour_Changer is now defined in a different file.  It was defined in "C:/Users/lab/Desktop/NEW/learner/VGA_Colour_Changer.vhd", and is now defined in "D:/mrfarinq/Projects/Xilinx/projects/zaliczenie/uciswowe_gowno/VGA_Colour_Changer.vhd".
-WARNING:HDLParsers:3607 - Unit work/VGA_Colour_Changer/Behavioral is now defined in a different file.  It was defined in "C:/Users/lab/Desktop/NEW/learner/VGA_Colour_Changer.vhd", and is now defined in "D:/mrfarinq/Projects/Xilinx/projects/zaliczenie/uciswowe_gowno/VGA_Colour_Changer.vhd".
 Compiling vhdl file "D:/mrfarinq/Projects/Xilinx/projects/zaliczenie/uciswowe_gowno/PS2_RX.vhd" in Library work.
-Entity <ps2_rx> compiled.
-Entity <ps2_rx> (Architecture <behavioral>) compiled.
+Architecture behavioral of Entity ps2_rx is up to date.
 Compiling vhdl file "D:/mrfarinq/Projects/Xilinx/projects/zaliczenie/uciswowe_gowno/VGA_Colour_Changer.vhd" in Library work.
-Entity <vga_colour_changer> compiled.
-Entity <vga_colour_changer> (Architecture <behavioral>) compiled.
+Architecture behavioral of Entity vga_colour_changer is up to date.
 Compiling vhdl file "D:/mrfarinq/Projects/Xilinx/projects/zaliczenie/uciswowe_gowno/FSM_String.vhd" in Library work.
-Entity <fsm_string> compiled.
-Entity <fsm_string> (Architecture <rtl>) compiled.
+Architecture rtl of Entity fsm_string is up to date.
 Compiling vhdl file "D:/mrfarinq/Projects/Xilinx/projects/zaliczenie/uciswowe_gowno/TYPE_LEARNER_SCH.vhf" in Library work.
 Entity <type_learner_sch> compiled.
 Entity <type_learner_sch> (Architecture <behavioral>) compiled.
@@ -401,23 +390,23 @@ Design Statistics
 # IOs                              : 9
 
 Cell Usage :
-# BELS                             : 558
+# BELS                             : 561
 #      AND2                        : 1
 #      AND3                        : 4
 #      AND3B1                      : 4
 #      GND                         : 2
 #      INV                         : 12
 #      LUT1                        : 43
-#      LUT2                        : 42
+#      LUT2                        : 41
 #      LUT2_L                      : 5
-#      LUT3                        : 56
-#      LUT3_D                      : 1
+#      LUT3                        : 61
+#      LUT3_D                      : 4
 #      LUT3_L                      : 2
-#      LUT4                        : 201
-#      LUT4_D                      : 13
-#      LUT4_L                      : 11
+#      LUT4                        : 192
+#      LUT4_D                      : 14
+#      LUT4_L                      : 14
 #      MUXCY                       : 53
-#      MUXF5                       : 41
+#      MUXF5                       : 42
 #      MUXF5_L                     : 2
 #      MUXF6                       : 6
 #      OR2                         : 5
@@ -437,8 +426,7 @@ Cell Usage :
 #      RAMB16_S9_S9                : 1
 # Shift Registers                  : 3
 #      SRL16                       : 3
-# Clock Buffers                    : 2
-#      BUFG                        : 1
+# Clock Buffers                    : 1
 #      BUFGP                       : 1
 # IO Buffers                       : 8
 #      IBUF                        : 3
@@ -450,15 +438,15 @@ Device utilization summary:
 
 Selected Device : 3s500efg320-4 
 
- Number of Slices:                      218  out of   4656     4%  
+ Number of Slices:                      216  out of   4656     4%  
  Number of Slice Flip Flops:            145  out of   9312     1%  
- Number of 4 input LUTs:                389  out of   9312     4%  
-    Number used as logic:               386
+ Number of 4 input LUTs:                391  out of   9312     4%  
+    Number used as logic:               388
     Number used as Shift registers:       3
  Number of IOs:                           9
  Number of bonded IOBs:                   9  out of    232     3%  
  Number of BRAMs:                         2  out of     20    10%  
- Number of GCLKs:                         2  out of     24     8%  
+ Number of GCLKs:                         1  out of     24     4%  
 
 ---------------------------
 Partition Resource Summary:
@@ -481,9 +469,8 @@ Clock Information:
 -----------------------------------------------------+--------------------------+-------+
 Clock Signal                                         | Clock buffer(FF name)    | Load  |
 -----------------------------------------------------+--------------------------+-------+
-Clk_50MHz                                            | IBUF+BUFG                | 124   |
+Clk_50MHz                                            | BUFGP                    | 143   |
 XLXI_10/state_cmp_eq0002(XLXI_10/state_cmp_eq00021:O)| NONE(*)(XLXI_10/VGA_DI_6)| 7     |
-PS2_CLK                                              | BUFGP                    | 19    |
 -----------------------------------------------------+--------------------------+-------+
 (*) This 1 clock signal(s) are generated by combinatorial logic,
 and XST is not able to identify which are the primary clock signals.
@@ -527,7 +514,7 @@ All values displayed in nanoseconds (ns)
 =========================================================================
 Timing constraint: Default period analysis for Clock 'Clk_50MHz'
   Clock period: 9.574ns (frequency: 104.450MHz)
-  Total number of paths / destination ports: 3274 / 274
+  Total number of paths / destination ports: 3582 / 326
 -------------------------------------------------------------------------
 Delay:               9.574ns (Levels of Logic = 9)
   Source:            XLXI_15/XLXI_147/Mrom_DO_rom0000 (RAM)
@@ -557,31 +544,8 @@ Delay:               9.574ns (Levels of Logic = 9)
                                        (78.0% logic, 22.0% route)
 
 =========================================================================
-Timing constraint: Default period analysis for Clock 'PS2_CLK'
-  Clock period: 4.205ns (frequency: 237.812MHz)
-  Total number of paths / destination ports: 73 / 38
--------------------------------------------------------------------------
-Delay:               4.205ns (Levels of Logic = 2)
-  Source:            XLXI_8/shift_register_data_1 (FF)
-  Destination:       XLXI_8/state_FSM_FFd1 (FF)
-  Source Clock:      PS2_CLK rising
-  Destination Clock: PS2_CLK rising
-
-  Data Path: XLXI_8/shift_register_data_1 to XLXI_8/state_FSM_FFd1
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     FDE:C->Q             21   0.591   1.303  XLXI_8/shift_register_data_1 (XLXI_8/shift_register_data_1)
-     LUT4:I0->O            1   0.704   0.595  XLXI_8/Mxor_validate_parity_xor0000_xo<0>4 (XLXI_8/Mxor_validate_parity_xor0000_xo<0>4)
-     LUT4:I0->O            1   0.704   0.000  XLXI_8/state_FSM_FFd1-In1 (XLXI_8/state_FSM_FFd1-In1)
-     FDR:D                     0.308          XLXI_8/state_FSM_FFd1
-    ----------------------------------------
-    Total                      4.205ns (2.307ns logic, 1.898ns route)
-                                       (54.9% logic, 45.1% route)
-
-=========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'Clk_50MHz'
-  Total number of paths / destination ports: 3 / 3
+  Total number of paths / destination ports: 5 / 5
 -------------------------------------------------------------------------
 Offset:              2.660ns (Levels of Logic = 1)
   Source:            BTN_SOUTH (PAD)
@@ -597,25 +561,6 @@ Offset:              2.660ns (Levels of Logic = 1)
     ----------------------------------------
     Total                      2.660ns (2.129ns logic, 0.531ns route)
                                        (80.0% logic, 20.0% route)
-
-=========================================================================
-Timing constraint: Default OFFSET IN BEFORE for Clock 'PS2_CLK'
-  Total number of paths / destination ports: 2 / 2
--------------------------------------------------------------------------
-Offset:              1.973ns (Levels of Logic = 1)
-  Source:            Clk_50MHz (PAD)
-  Destination:       XLXI_8/allow_new_data_bit_1 (FF)
-  Destination Clock: PS2_CLK rising
-
-  Data Path: Clk_50MHz to XLXI_8/allow_new_data_bit_1
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     IBUF:I->O             2   1.218   0.447  Clk_50MHz_IBUF (Clk_50MHz_IBUF1)
-     FD:D                      0.308          XLXI_8/allow_new_data_bit_1
-    ----------------------------------------
-    Total                      1.973ns (1.526ns logic, 0.447ns route)
-                                       (77.3% logic, 22.7% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'Clk_50MHz'
@@ -640,14 +585,14 @@ Offset:              4.450ns (Levels of Logic = 2)
 =========================================================================
 
 
-Total REAL time to Xst completion: 10.00 secs
-Total CPU time to Xst completion: 9.61 secs
+Total REAL time to Xst completion: 8.00 secs
+Total CPU time to Xst completion: 8.24 secs
  
 --> 
 
-Total memory usage is 358376 kilobytes
+Total memory usage is 357832 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :   35 (   0 filtered)
+Number of warnings :   27 (   0 filtered)
 Number of infos    :   13 (   0 filtered)
 

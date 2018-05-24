@@ -1,14 +1,14 @@
-Release 14.7 - Bitgen P.20131013 (nt)
+Release 14.7 - Bitgen P.20131013 (nt64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 Loading device for application Rf_Device from file '3s500e.nph' in environment
-C:\Xilinx\14.7\ISE_DS\ISE\.
+D:\mrfarinq\Projects\Xilinx\14.7\ISE_DS\ISE\.
    "TYPE_LEARNER_SCH" is an NCD, version 3.2, device xc3s500e, package fg320,
 speed -4
 Opened constraints file TYPE_LEARNER_SCH.pcf.
 
-Wed May 16 16:12:22 2018
+Thu May 24 03:09:09 2018
 
-C:\Xilinx\14.7\ISE_DS\ISE\bin\nt\unwrapped\bitgen.exe -intstyle ise -w -g DebugBitstream:No -g Binary:no -g CRC:Enable -g ConfigRate:1 -g ProgPin:PullUp -g DonePin:PullUp -g TckPin:PullUp -g TdiPin:PullUp -g TdoPin:PullUp -g TmsPin:PullUp -g UnusedPin:PullDown -g UserID:0xFFFFFFFF -g DCMShutdown:Disable -g StartUpClk:CClk -g DONE_cycle:4 -g GTS_cycle:5 -g GWE_cycle:6 -g LCK_cycle:NoWait -g Security:None -g DonePipe:Yes -g DriveDone:No TYPE_LEARNER_SCH.ncd 
+D:\mrfarinq\Projects\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\bitgen.exe -intstyle ise -w -g DebugBitstream:No -g Binary:no -g CRC:Enable -g ConfigRate:1 -g ProgPin:PullUp -g DonePin:PullUp -g TckPin:PullUp -g TdiPin:PullUp -g TdoPin:PullUp -g TmsPin:PullUp -g UnusedPin:PullDown -g UserID:0xFFFFFFFF -g DCMShutdown:Disable -g StartUpClk:CClk -g DONE_cycle:4 -g GTS_cycle:5 -g GWE_cycle:6 -g LCK_cycle:NoWait -g Security:None -g DonePipe:Yes -g DriveDone:No TYPE_LEARNER_SCH.ncd 
 
 Summary of Bitgen Options:
 +----------------------+----------------------+
@@ -91,16 +91,11 @@ There were 0 CONFIG constraint(s) processed from TYPE_LEARNER_SCH.pcf.
 
 
 Running DRC.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net XLXI_1/State_cmp_eq0002 is
+WARNING:PhysDesignRules:372 - Gated clock. Clock net XLXI_10/state_cmp_eq0002 is
    sourced by a combinatorial pin. This is not good design practice. Use the CE
    pin to control the loading of data into the flip-flop.
 DRC detected 0 errors and 1 warnings.  Please see the previously displayed
 individual error or warning messages for more details.
-INFO:Security:54 - 'xc3s500e' is a WebPack part.
-WARNING:Security:42 - Your software subscription period has lapsed. Your current
-version of Xilinx tools will continue to function, but you no longer qualify for
-Xilinx software updates or new releases.
-
 Creating bit map...
 Saving bit stream in "type_learner_sch.bit".
 Bitstream generation is complete.

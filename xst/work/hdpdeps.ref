@@ -18,34 +18,34 @@ FL C:/Users/lab/Desktop/NEW/learner/PS2_RX.vhd 2018/03/26.13:13:48 P.20131013
 FL C:/Users/lab/Desktop/NEW/learner/TYPE_LEARNER_SCH.vhf 2018/05/16.16:11:38 P.20131013
 FL C:/Users/lab/Desktop/NEW/learner/VGA_Colour_Changer.vhd 2018/05/16.16:08:51 P.20131013
 FL D:/mrfarinq/Projects/Xilinx/projects/zaliczenie/uciswowe_gowno/FSM_String.vhd 2018/05/24.02:19:52 P.20131013
-EN work/FSM_String 1527122661 \
+EN work/FSM_String 1527124102 \
       FL D:/mrfarinq/Projects/Xilinx/projects/zaliczenie/uciswowe_gowno/FSM_String.vhd \
       PB ieee/std_logic_1164 1381692176 PB ieee/std_logic_arith 1381692177 \
       PB ieee/STD_LOGIC_UNSIGNED 1381692179
-AR work/FSM_String/RTL 1527122662 \
+AR work/FSM_String/RTL 1527124103 \
       FL D:/mrfarinq/Projects/Xilinx/projects/zaliczenie/uciswowe_gowno/FSM_String.vhd \
-      EN work/FSM_String 1527122661
+      EN work/FSM_String 1527124102
 FL D:/mrfarinq/Projects/Xilinx/projects/zaliczenie/uciswowe_gowno/PS2_RX.vhd 2018/05/24.02:19:46 P.20131013
-EN work/PS2_RX 1527122657 \
+EN work/PS2_RX 1527124098 \
       FL D:/mrfarinq/Projects/Xilinx/projects/zaliczenie/uciswowe_gowno/PS2_RX.vhd \
       PB ieee/std_logic_1164 1381692176 PB ieee/NUMERIC_STD 1381692181 \
       PB ieee/STD_LOGIC_SIGNED 1381692178
-AR work/PS2_RX/Behavioral 1527122658 \
+AR work/PS2_RX/Behavioral 1527124099 \
       FL D:/mrfarinq/Projects/Xilinx/projects/zaliczenie/uciswowe_gowno/PS2_RX.vhd \
-      EN work/PS2_RX 1527122657
-FL D:/mrfarinq/Projects/Xilinx/projects/zaliczenie/uciswowe_gowno/TYPE_LEARNER_SCH.vhf 2018/05/24.02:44:11 P.20131013
-EN work/TYPE_LEARNER_SCH 1527122663 \
+      EN work/PS2_RX 1527124098
+FL D:/mrfarinq/Projects/Xilinx/projects/zaliczenie/uciswowe_gowno/TYPE_LEARNER_SCH.vhf 2018/05/24.03:08:15 P.20131013
+EN work/TYPE_LEARNER_SCH 1527124104 \
       FL D:/mrfarinq/Projects/Xilinx/projects/zaliczenie/uciswowe_gowno/TYPE_LEARNER_SCH.vhf \
       PB ieee/std_logic_1164 1381692176 PB ieee/NUMERIC_STD 1381692181 LB UNISIM \
       PH unisim/VCOMPONENTS 1381692182
-AR work/TYPE_LEARNER_SCH/BEHAVIORAL 1527122664 \
+AR work/TYPE_LEARNER_SCH/BEHAVIORAL 1527124105 \
       FL D:/mrfarinq/Projects/Xilinx/projects/zaliczenie/uciswowe_gowno/TYPE_LEARNER_SCH.vhf \
-      EN work/TYPE_LEARNER_SCH 1527122663 CP PS2_RX CP VGA_Colour_Changer \
+      EN work/TYPE_LEARNER_SCH 1527124104 CP PS2_RX CP VGA_Colour_Changer \
       CP FSM_String CP VCC CP GND CP VGAtxt48x20
 FL D:/mrfarinq/Projects/Xilinx/projects/zaliczenie/uciswowe_gowno/VGA_Colour_Changer.vhd 2018/05/24.02:06:41 P.20131013
-EN work/VGA_Colour_Changer 1527122659 \
+EN work/VGA_Colour_Changer 1527124100 \
       FL D:/mrfarinq/Projects/Xilinx/projects/zaliczenie/uciswowe_gowno/VGA_Colour_Changer.vhd \
       PB ieee/std_logic_1164 1381692176
-AR work/VGA_Colour_Changer/Behavioral 1527122660 \
+AR work/VGA_Colour_Changer/Behavioral 1527124101 \
       FL D:/mrfarinq/Projects/Xilinx/projects/zaliczenie/uciswowe_gowno/VGA_Colour_Changer.vhd \
-      EN work/VGA_Colour_Changer 1527122659
+      EN work/VGA_Colour_Changer 1527124100
