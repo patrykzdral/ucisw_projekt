@@ -1,0 +1,29 @@
+Command line:
+   PS2_RX_TB2_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  58357
+
+Thu May 24 05:08:17 2018
+
+
+ Elaboration Time: 0.046875 sec
+
+ Current Memory Usage: 5173.77 Meg
+
+ Total Signals          : 16
+ Total Nets             : 32
+ Total Signal Drivers   : 11
+ Total Blocks           : 6
+ Total Primitive Blocks : 5
+ Total Processes        : 10
+ Total Traceable Variables  : 17
+ Total Scalar Nets and Variables : 535
+Total Line Count : 37
+
+ Total Simulation Time: 0.046875 sec
+
+ Current Memory Usage: 5173.77 Meg
+
+Thu May 24 05:08:21 2018
+

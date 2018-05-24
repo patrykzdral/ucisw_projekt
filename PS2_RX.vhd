@@ -1,119 +1,86 @@
-----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date:    12:17:49 03/26/2018 
--- Design Name: 
--- Module Name:    PS2_RX - Behavioral 
--- Project Name: 
--- Target Devices: 
--- Tool versions: 
--- Description: 
---
--- Dependencies: 
---
--- Revision: 
--- Revision 0.01 - File Created
--- Additional Comments: 
---
-----------------------------------------------------------------------------------
-library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.NUMERIC_STD.ALL;
-use ieee.std_logic_signed.all;
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.ALL;
+USE IEEE.NUMERIC_STD.ALL;
+USE ieee.std_logic_signed.ALL;
 
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
+ENTITY PS2_RX IS
+	PORT (
+		PS2_CLK  : IN STD_LOGIC;
+		PS2_DATA : IN STD_LOGIC;
+		CLK      : IN STD_LOGIC;
+		DO_RDY   : OUT STD_LOGIC;
+		DO       : OUT STD_LOGIC_VECTOR (7 DOWNTO 0));
+END PS2_RX;
 
--- Uncomment the following library declaration if instantiating
--- any Xilinx primitives in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
-
-entity PS2_RX is
-    Port ( PS2_CLK : in  STD_LOGIC;
-           PS2_DATA : in  STD_LOGIC;
-           CLK : in  STD_LOGIC;
-           DO_RDY : out  STD_LOGIC;
-           DO : out  STD_LOGIC_VECTOR (7 downto 0));
-end PS2_RX;
-
-architecture Behavioral of PS2_RX is
-   signal shift_register_data :STD_LOGIC_VECTOR(10 downto 0) := "00000000000";
-   signal mod11_counter : STD_LOGIC_VECTOR(3 downto 0) := "0000";
-   signal allow_new_data_bit : STD_LOGIC_VECTOR(1 downto 0) := "11";
-	signal validate_parity : STD_LOGIC := '0';
-   type state_type is (idle, check_valid, ps2_word_ok);
-   signal state, next_state : state_type;
-	
-begin
-
-process(CLK)
-begin
-   if rising_edge(CLK) then 
-      allow_new_data_bit(1) <= PS2_CLK;
-      allow_new_data_bit(0) <= allow_new_data_bit(1);          
-   end if;
-end process;
-
-process(CLK, state)
-begin
-   if(rising_edge(CLK)) then
-      if( state  = ps2_word_ok) then
-         mod11_counter <= "0000";
-      elsif(allow_new_data_bit(1) = '0' and allow_new_data_bit(0) = '1') then
-         mod11_counter <= mod11_counter + 1;  
-      end if;
-    end if;
-end process;
-
-process(CLK)
-begin
-   if(rising_edge(CLK)) then
-		if(allow_new_data_bit(1) = '0' and allow_new_data_bit(0) = '1') then
-			shift_register_data(9 downto 0) <= shift_register_data(10 downto 1);
-			shift_register_data(10) <= PS2_DATA;
-		end if;
-   end if;
-end process;
-
-validate_parity <= not(shift_register_data(8) xor shift_register_data(7) xor shift_register_data(6) 
-                  xor shift_register_data(5) xor shift_register_data(4) xor shift_register_data(3) 
-                    xor shift_register_data(2) xor shift_register_data(1));
-
-SHIFT_STATE: process(CLK)
-begin
-   if(rising_edge(CLK)) then
-      state <= next_state;
-   end if;
-end process SHIFT_STATE;
-
-STATE_MACHINE : process(state, mod11_counter, shift_register_data, validate_parity)
-begin
-   next_state <= state;
-   
-   case state is
-      when idle =>
-         if(mod11_counter = "1011") then
-            next_state <= check_valid;
-         end if;
-      when check_valid =>
-         if(shift_register_data(0) = '0' and shift_register_data(9) = validate_parity and shift_register_data(10) = '1') then
-            next_state <= ps2_word_ok;
-         else
-            next_state <=idle;
-      end if;
-         when ps2_word_ok =>
-            next_state <= idle;
-   end case;
-   
-end process STATE_MACHINE;
-
---In place of process
-DO_RDY <= '1' when state = ps2_word_ok
-   else '0';
-DO <= shift_register_data(8 downto 1);
-
-end Behavioral;
-
+ARCHITECTURE Behavioral OF PS2_RX IS
+	SIGNAL shift_register_data : STD_LOGIC_VECTOR(10 DOWNTO 0) := "00000000000";
+	SIGNAL mod11_counter       : STD_LOGIC_VECTOR(3 DOWNTO 0)  := "0000";
+	SIGNAL allow_new_data_bit  : STD_LOGIC_VECTOR(1 DOWNTO 0)  := "11";
+	SIGNAL validate_parity     : STD_LOGIC                     := '0';
+	TYPE state_type IS (idle, check_valid, ps2_word_ok);
+    SIGNAL state, next_state : state_type;
+    
+BEGIN
+	PROCESS (CLK)
+	BEGIN
+		IF rising_edge(CLK) THEN
+			allow_new_data_bit(1) <= PS2_CLK;
+			allow_new_data_bit(0) <= allow_new_data_bit(1);
+		END IF;
+    END PROCESS;
+    
+	PROCESS (CLK, state)
+	BEGIN
+		IF (rising_edge(CLK)) THEN
+			IF (state = ps2_word_ok) THEN
+				mod11_counter <= "0000";
+			ELSIF (allow_new_data_bit(1) = '0' AND allow_new_data_bit(0) = '1') THEN
+				mod11_counter <= mod11_counter + 1;
+			END IF;
+		END IF;
+    END PROCESS;
+    
+	PROCESS (CLK)
+	BEGIN
+		IF (rising_edge(CLK)) THEN
+			IF (allow_new_data_bit(1) = '0' AND allow_new_data_bit(0) = '1') THEN
+				shift_register_data(9 DOWNTO 0) <= shift_register_data(10 DOWNTO 1);
+				shift_register_data(10)         <= PS2_DATA;
+			END IF;
+		END IF;
+    END PROCESS;
+    
+	validate_parity <= NOT(shift_register_data(8) XOR shift_register_data(7) XOR shift_register_data(6)
+		XOR shift_register_data(5) XOR shift_register_data(4) XOR shift_register_data(3)
+        XOR shift_register_data(2) XOR shift_register_data(1));
+        
+	SHIFT_STATE : PROCESS (CLK)
+	BEGIN
+		IF (rising_edge(CLK)) THEN
+			state <= next_state;
+		END IF;
+    END PROCESS SHIFT_STATE;
+    
+	STATE_MACHINE : PROCESS (state, mod11_counter, shift_register_data, validate_parity)
+	BEGIN
+		next_state <= state;
+		CASE state IS
+			WHEN idle =>
+				IF (mod11_counter = "1011") THEN
+					next_state <= check_valid;
+				END IF;
+			WHEN check_valid =>
+				IF (shift_register_data(0) = '0' AND shift_register_data(9) = validate_parity AND shift_register_data(10) = '1') THEN
+					next_state <= ps2_word_ok;
+				ELSE
+					next_state <= idle;
+				END IF;
+			WHEN ps2_word_ok =>
+				next_state <= idle;
+		END CASE;
+    END PROCESS STATE_MACHINE;
+    
+	DO_RDY <= '1' WHEN state = ps2_word_ok
+		ELSE '0';
+	DO <= shift_register_data(8 DOWNTO 1);
+END Behavioral;

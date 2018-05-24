@@ -1,0 +1,2 @@
+vhdl work "FSM_String.vhd"
+vhdl work "FSM_String_TB.vhd"

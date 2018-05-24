@@ -1,0 +1,2 @@
+vhdl isim_temp "VGA_Colour_Changer.vhd"
+vhdl isim_temp "VGA_Colour_Changer_TB.vhd"

@@ -1,1 +1,1 @@
--intstyle "ise" -incremental -o "C:/Users/lab/Desktop/learner/learner/PS2_RX_TB_isim_beh.exe" -prj "C:/Users/lab/Desktop/learner/learner/PS2_RX_TB_beh.prj" "work.PS2_RX_TB" 
+-intstyle "ise" -incremental -o "C:/Users/Patryk Zdral/Documents/NEWEST/ucisw_projekt-16.05.2018_refactoring/FSM_String_TB_isim_beh.exe" -prj "C:/Users/Patryk Zdral/Documents/NEWEST/ucisw_projekt-16.05.2018_refactoring/FSM_String_TB_beh.prj" "work.FSM_String_TB" 

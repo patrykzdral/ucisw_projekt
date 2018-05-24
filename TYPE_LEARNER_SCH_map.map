@@ -1,4 +1,4 @@
-Release 14.7 Map P.20131013 (nt)
+Release 14.7 Map P.20131013 (nt64)
 Xilinx Map Application Log File for Design 'TYPE_LEARNER_SCH'
 
 Design Information
@@ -9,43 +9,47 @@ Target Device  : xc3s500e
 Target Package : fg320
 Target Speed   : -4
 Mapper Version : spartan3e -- $Revision: 1.55 $
-Mapped Date    : Fri Apr 27 13:49:11 2018
+Mapped Date    : Thu May 24 18:57:49 2018
 
-vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-INFO:Security:54 - 'xc3s500e' is a WebPack part.
-WARNING:Security:42 - Your software subscription period has lapsed. Your current
-version of Xilinx tools will continue to function, but you no longer qualify for
-Xilinx software updates or new releases.
-----------------------------------------------------------------------
 Mapping design into LUTs...
 Running directed packing...
+WARNING:Pack:266 - The function generator XLXI_10/VGA_DI_mux0002<1>18 failed to
+   merge with F5 multiplexer XLXI_10/VGA_DI_mux0002<1>29_f5.  There is a
+   conflict for the FXMUX.  The design will exhibit suboptimal timing.
+WARNING:Pack:266 - The function generator XLXI_10/VGA_DI_mux0002<2>18 failed to
+   merge with F5 multiplexer XLXI_10/VGA_DI_mux0002<2>29_f5.  There is a
+   conflict for the FXMUX.  The design will exhibit suboptimal timing.
 Running delay-based LUT packing...
 Running related packing...
 Updating timing models...
-WARNING:PhysDesignRules:372 - Gated clock. Clock net XLXI_1/LCD_DI_or0000 is
+WARNING:PhysDesignRules:372 - Gated clock. Clock net XLXI_10/state_cmp_eq0002 is
    sourced by a combinatorial pin. This is not good design practice. Use the CE
    pin to control the loading of data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   XLXI_10/VGA_COLOUR_MODE_or0000 is sourced by a combinatorial pin. This is not
+   good design practice. Use the CE pin to control the loading of data into the
+   flip-flop.
 
 Design Summary
 --------------
 
 Design Summary:
 Number of errors:      0
-Number of warnings:    1
+Number of warnings:    4
 Logic Utilization:
-  Total Number Slice Registers:         122 out of   9,312    1%
-    Number used as Flip Flops:          115
-    Number used as Latches:               7
-  Number of 4 input LUTs:               202 out of   9,312    2%
+  Total Number Slice Registers:         184 out of   9,312    1%
+    Number used as Flip Flops:          176
+    Number used as Latches:               8
+  Number of 4 input LUTs:               402 out of   9,312    4%
 Logic Distribution:
-  Number of occupied Slices:            147 out of   4,656    3%
-    Number of Slices containing only related logic:     147 out of     147 100%
-    Number of Slices containing unrelated logic:          0 out of     147   0%
+  Number of occupied Slices:            262 out of   4,656    5%
+    Number of Slices containing only related logic:     262 out of     262 100%
+    Number of Slices containing unrelated logic:          0 out of     262   0%
       *See NOTES below for an explanation of the effects of unrelated logic.
-  Total Number of 4 input LUTs:         251 out of   9,312    2%
-    Number used as logic:               198
-    Number used as a route-thru:         49
-    Number used as Shift registers:       4
+  Total Number of 4 input LUTs:         454 out of   9,312    4%
+    Number used as logic:               399
+    Number used as a route-thru:         52
+    Number used as Shift registers:       3
 
   The Slice Logic Distribution report is not meaningful if the design is
   over-mapped for a non-slice resource or if Placement fails.
@@ -54,10 +58,10 @@ Logic Distribution:
   Number of RAMB16s:                      2 out of      20   10%
   Number of BUFGMUXs:                     1 out of      24    4%
 
-Average Fanout of Non-Clock Nets:                3.28
+Average Fanout of Non-Clock Nets:                3.50
 
-Peak Memory Usage:  209 MB
-Total REAL time to MAP completion:  25 secs 
+Peak Memory Usage:  4441 MB
+Total REAL time to MAP completion:  1 secs 
 Total CPU time to MAP completion:   1 secs 
 
 NOTES:

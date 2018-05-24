@@ -7,11 +7,11 @@
 -- \   \   \/     Version : 14.7
 --  \   \         Application : sch2hdl
 --  /   /         Filename : TYPE_LEARNER_SCH.vhf
--- /___/   /\     Timestamp : 04/27/2018 12:42:09
+-- /___/   /\     Timestamp : 05/24/2018 11:50:09
 -- \   \  /  \ 
 --  \___\/\___\ 
 --
---Command: sch2hdl -intstyle ise -family spartan3e -flat -suppress -vhdl C:/Users/lab/Desktop/learner-v2/learner/learner/learner/TYPE_LEARNER_SCH.vhf -w C:/Users/lab/Desktop/learner-v2/learner/learner/learner/TYPE_LEARNER_SCH.sch
+--Command: sch2hdl -intstyle ise -family spartan3e -flat -suppress -vhdl C:/Users/lab/Desktop/NEWEST/ucisw_projekt-16.05.2018_refactoring/TYPE_LEARNER_SCH.vhf -w C:/Users/lab/Desktop/NEWEST/ucisw_projekt-16.05.2018_refactoring/TYPE_LEARNER_SCH.sch
 --Design Name: TYPE_LEARNER_SCH
 --Device: spartan3e
 --Purpose:
@@ -39,29 +39,55 @@ end TYPE_LEARNER_SCH;
 
 architecture BEHAVIORAL of TYPE_LEARNER_SCH is
    attribute BOX_TYPE   : string ;
-   signal XLXN_1                        : std_logic_vector (7 downto 0);
-   signal XLXN_2                        : std_logic;
-   signal XLXN_3                        : std_logic;
-   signal XLXN_4                        : std_logic;
-   signal XLXN_8                        : std_logic;
-   signal XLXN_9                        : std_logic;
-   signal XLXN_25                       : std_logic;
-   signal XLXN_26                       : std_logic_vector (7 downto 0);
-   signal XLXN_27                       : std_logic;
-   signal XLXI_2_Goto00_openSignal      : std_logic;
-   signal XLXI_2_ScrollClear_openSignal : std_logic;
-   signal XLXI_2_ScrollEn_openSignal    : std_logic;
-   component FSM_String
-      port ( Clk       : in    std_logic; 
-             Reset     : in    std_logic; 
-             LCD_Busy  : in    std_logic; 
-             PS2_DoRdy : in    std_logic; 
-             PS2_Input : in    std_logic_vector (7 downto 0); 
-             LCD_WE    : out   std_logic; 
-             LCD_DnI   : out   std_logic; 
-             New_Line  : out   std_logic; 
-             LCD_DI    : out   std_logic_vector (7 downto 0));
+   signal XLXN_14                        : std_logic;
+   signal XLXN_15                        : std_logic_vector (7 downto 0);
+   signal XLXN_18                        : std_logic;
+   signal XLXN_20                        : std_logic_vector (7 downto 0);
+   signal XLXN_26                        : std_logic;
+   signal XLXN_27                        : std_logic;
+   signal XLXN_28                        : std_logic;
+   signal XLXN_31                        : std_logic;
+   signal XLXN_32                        : std_logic;
+   signal XLXI_15_Goto00_openSignal      : std_logic;
+   signal XLXI_15_ScrollClear_openSignal : std_logic;
+   signal XLXI_15_ScrollEn_openSignal    : std_logic;
+   component PS2_RX
+      port ( PS2_CLK  : in    std_logic; 
+             PS2_DATA : in    std_logic; 
+             CLK      : in    std_logic; 
+             DO_RDY   : out   std_logic; 
+             DO       : out   std_logic_vector (7 downto 0));
    end component;
+   
+   component VGA_Colour_Changer
+      port ( CLK      : in    std_logic; 
+             IS_ERROR : in    std_logic; 
+             VGA_RGB  : in    std_logic; 
+             VGA_R    : out   std_logic; 
+             VGA_G    : out   std_logic; 
+             VGA_B    : out   std_logic);
+   end component;
+   
+   component FSM_String
+      port ( CLK             : in    std_logic; 
+             RESET           : in    std_logic; 
+             PS2_INPUT       : in    std_logic_vector (7 downto 0); 
+             VGA_WE          : out   std_logic; 
+             VGA_COLOUR_MODE : out   std_logic; 
+             VGA_NEW_LINE    : out   std_logic; 
+             VGA_DI          : out   std_logic_vector (7 downto 0); 
+             PS2_RDY         : in    std_logic);
+   end component;
+   
+   component VCC
+      port ( P : out   std_logic);
+   end component;
+   attribute BOX_TYPE of VCC : component is "BLACK_BOX";
+   
+   component GND
+      port ( G : out   std_logic);
+   end component;
+   attribute BOX_TYPE of GND : component is "BLACK_BOX";
    
    component VGAtxt48x20
       port ( Char_DI     : in    std_logic_vector (7 downto 0); 
@@ -80,82 +106,53 @@ architecture BEHAVIORAL of TYPE_LEARNER_SCH is
              Char_WE     : in    std_logic);
    end component;
    
-   component VCC
-      port ( P : out   std_logic);
-   end component;
-   attribute BOX_TYPE of VCC : component is "BLACK_BOX";
-   
-   component GND
-      port ( G : out   std_logic);
-   end component;
-   attribute BOX_TYPE of GND : component is "BLACK_BOX";
-   
-   component BUF
-      port ( I : in    std_logic; 
-             O : out   std_logic);
-   end component;
-   attribute BOX_TYPE of BUF : component is "BLACK_BOX";
-   
-   component PS2_RX
-      port ( PS2_CLK  : in    std_logic; 
-             PS2_DATA : in    std_logic; 
-             CLK      : in    std_logic; 
-             DO_RDY   : out   std_logic; 
-             DO       : out   std_logic_vector (7 downto 0));
-   end component;
-   
 begin
-   XLXI_1 : FSM_String
-      port map (Clk=>Clk_50MHz,
-                LCD_Busy=>XLXN_8,
-                PS2_DoRdy=>XLXN_25,
-                PS2_Input(7 downto 0)=>XLXN_26(7 downto 0),
-                Reset=>BTN_SOUTH,
-                LCD_DI(7 downto 0)=>XLXN_1(7 downto 0),
-                LCD_DnI=>open,
-                LCD_WE=>XLXN_2,
-                New_Line=>XLXN_27);
-   
-   XLXI_2 : VGAtxt48x20
-      port map (Char_DI(7 downto 0)=>XLXN_1(7 downto 0),
-                Char_WE=>XLXN_2,
-                Clk_Sys=>Clk_50MHz,
-                Clk_50MHz=>Clk_50MHz,
-                CursorOn=>XLXN_3,
-                Goto00=>XLXI_2_Goto00_openSignal,
-                Home=>XLXN_4,
-                NewLine=>XLXN_27,
-                ScrollClear=>XLXI_2_ScrollClear_openSignal,
-                ScrollEn=>XLXI_2_ScrollEn_openSignal,
-                Busy=>XLXN_8,
-                VGA_HS=>VGA_HS,
-                VGA_RGB=>XLXN_9,
-                VGA_VS=>VGA_VS);
-   
-   XLXI_3 : VCC
-      port map (P=>XLXN_3);
-   
-   XLXI_4 : GND
-      port map (G=>XLXN_4);
-   
-   XLXI_5 : BUF
-      port map (I=>XLXN_9,
-                O=>VGA_R);
-   
-   XLXI_6 : BUF
-      port map (I=>XLXN_9,
-                O=>VGA_G);
-   
-   XLXI_7 : BUF
-      port map (I=>XLXN_9,
-                O=>VGA_B);
-   
    XLXI_8 : PS2_RX
       port map (CLK=>Clk_50MHz,
                 PS2_CLK=>PS2_CLK,
                 PS2_DATA=>PS2_DATA,
-                DO(7 downto 0)=>XLXN_26(7 downto 0),
-                DO_RDY=>XLXN_25);
+                DO(7 downto 0)=>XLXN_15(7 downto 0),
+                DO_RDY=>XLXN_14);
+   
+   XLXI_9 : VGA_Colour_Changer
+      port map (CLK=>Clk_50MHz,
+                IS_ERROR=>XLXN_26,
+                VGA_RGB=>XLXN_31,
+                VGA_B=>VGA_B,
+                VGA_G=>VGA_G,
+                VGA_R=>VGA_R);
+   
+   XLXI_10 : FSM_String
+      port map (CLK=>Clk_50MHz,
+                PS2_INPUT(7 downto 0)=>XLXN_15(7 downto 0),
+                PS2_RDY=>XLXN_14,
+                RESET=>BTN_SOUTH,
+                VGA_COLOUR_MODE=>XLXN_26,
+                VGA_DI(7 downto 0)=>XLXN_20(7 downto 0),
+                VGA_NEW_LINE=>XLXN_32,
+                VGA_WE=>XLXN_18);
+   
+   XLXI_12 : VCC
+      port map (P=>XLXN_27);
+   
+   XLXI_14 : GND
+      port map (G=>XLXN_28);
+   
+   XLXI_15 : VGAtxt48x20
+      port map (Char_DI(7 downto 0)=>XLXN_20(7 downto 0),
+                Char_WE=>XLXN_18,
+                Clk_Sys=>Clk_50MHz,
+                Clk_50MHz=>Clk_50MHz,
+                CursorOn=>XLXN_27,
+                Goto00=>XLXI_15_Goto00_openSignal,
+                Home=>XLXN_28,
+                NewLine=>XLXN_32,
+                ScrollClear=>XLXI_15_ScrollClear_openSignal,
+                ScrollEn=>XLXI_15_ScrollEn_openSignal,
+                Busy=>open,
+                VGA_HS=>VGA_HS,
+                VGA_RGB=>XLXN_31,
+                VGA_VS=>VGA_VS);
    
 end BEHAVIORAL;
 

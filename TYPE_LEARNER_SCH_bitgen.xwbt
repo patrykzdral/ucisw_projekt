@@ -1,8 +1,8 @@
 INTSTYLE=ise
-INFILE=C:\Users\lab\Desktop\learner-v2\learner\learner\learner\TYPE_LEARNER_SCH.ncd
-OUTFILE=C:\Users\lab\Desktop\learner-v2\learner\learner\learner\TYPE_LEARNER_SCH.bit
+INFILE=C:\Users\Patryk Zdral\Documents\NEWEST\ucisw_projekt-16.05.2018_refactoring\TYPE_LEARNER_SCH.ncd
+OUTFILE=C:\Users\Patryk Zdral\Documents\NEWEST\ucisw_projekt-16.05.2018_refactoring\TYPE_LEARNER_SCH.bit
 FAMILY=Spartan3E
 PART=xc3s500e-4fg320
-WORKINGDIR=C:\Users\lab\Desktop\learner-v2\learner\learner\learner
-LICENSE=ISE
-USER_INFO=174693031_177724690_210552578_727
+WORKINGDIR=C:\Users\Patryk Zdral\Documents\NEWEST\ucisw_projekt-16.05.2018_refactoring
+LICENSE=WebPack
+USER_INFO=211414885_0_0_575

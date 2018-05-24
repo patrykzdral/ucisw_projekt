@@ -1,29 +1,7 @@
-V3 23
+V3 41
 FL C:/Users/lab/Desktop/learner-v2/learner/learner/learner/FSM_String.vhd 2018/04/27.13:48:53 P.20131013
-EN work/FSM_String 1524829736 \
-      FL C:/Users/lab/Desktop/learner-v2/learner/learner/learner/FSM_String.vhd \
-      PB ieee/std_logic_1164 1381692176 PB ieee/std_logic_arith 1381692177 \
-      PB ieee/STD_LOGIC_UNSIGNED 1381692179
-AR work/FSM_String/RTL 1524829737 \
-      FL C:/Users/lab/Desktop/learner-v2/learner/learner/learner/FSM_String.vhd \
-      EN work/FSM_String 1524829736
 FL C:/Users/lab/Desktop/learner-v2/learner/learner/learner/PS2_RX.vhd 2018/03/26.13:13:47 P.20131013
-EN work/PS2_RX 1524829738 \
-      FL C:/Users/lab/Desktop/learner-v2/learner/learner/learner/PS2_RX.vhd \
-      PB ieee/std_logic_1164 1381692176 PB ieee/NUMERIC_STD 1381692181 \
-      PB ieee/STD_LOGIC_SIGNED 1381692178
-AR work/PS2_RX/Behavioral 1524829739 \
-      FL C:/Users/lab/Desktop/learner-v2/learner/learner/learner/PS2_RX.vhd \
-      EN work/PS2_RX 1524829738
 FL C:/Users/lab/Desktop/learner-v2/learner/learner/learner/TYPE_LEARNER_SCH.vhf 2018/04/27.12:42:09 P.20131013
-EN work/TYPE_LEARNER_SCH 1524829740 \
-      FL C:/Users/lab/Desktop/learner-v2/learner/learner/learner/TYPE_LEARNER_SCH.vhf \
-      PB ieee/std_logic_1164 1381692176 PB ieee/NUMERIC_STD 1381692181 LB UNISIM \
-      PH unisim/VCOMPONENTS 1381692182
-AR work/TYPE_LEARNER_SCH/BEHAVIORAL 1524829741 \
-      FL C:/Users/lab/Desktop/learner-v2/learner/learner/learner/TYPE_LEARNER_SCH.vhf \
-      EN work/TYPE_LEARNER_SCH 1524829740 CP FSM_String CP VGAtxt48x20 CP VCC CP GND \
-      CP BUF CP PS2_RX
 FL C:/Users/lab/Desktop/learner/learner/learner/FSM_String.vhd 2018/04/13.13:14:31 P.20131013
 FL C:/Users/lab/Desktop/learner/learner/learner/PS2_RX.vhd 2018/03/26.13:13:47 P.20131013
 FL C:/Users/lab/Desktop/learner/learner/learner/PS2_RX_SCH.vhf 2018/04/13.12:12:01 P.20131013
@@ -35,3 +13,47 @@ AR work/PS2_RX_SCH/BEHAVIORAL 1523618471 \
       FL C:/Users/lab/Desktop/learner/learner/learner/PS2_RX_SCH.vhf \
       EN work/PS2_RX_SCH 1523618470 CP RS232 CP PS2_RX
 FL C:/Users/lab/Desktop/learner/learner/learner/TYPE_LEARNER_SCH.vhf 2018/04/13.13:41:00 P.20131013
+FL C:/Users/lab/Desktop/NEW/learner/FSM_String.vhd 2018/05/16.15:22:15 P.20131013
+FL C:/Users/lab/Desktop/NEW/learner/PS2_RX.vhd 2018/03/26.13:13:48 P.20131013
+FL C:/Users/lab/Desktop/NEW/learner/TYPE_LEARNER_SCH.vhf 2018/05/16.16:11:38 P.20131013
+FL C:/Users/lab/Desktop/NEW/learner/VGA_Colour_Changer.vhd 2018/05/16.16:08:51 P.20131013
+FL C:/Users/lab/Desktop/NEWEST/ucisw_projekt-16.05.2018_refactoring/FSM_String.vhd 2018/05/24.13:57:07 P.20131013
+FL C:/Users/lab/Desktop/NEWEST/ucisw_projekt-16.05.2018_refactoring/PS2_RX.vhd 2018/05/24.03:10:42 P.20131013
+FL C:/Users/lab/Desktop/NEWEST/ucisw_projekt-16.05.2018_refactoring/TYPE_LEARNER_SCH.vhf 2018/05/24.11:50:09 P.20131013
+FL C:/Users/lab/Desktop/NEWEST/ucisw_projekt-16.05.2018_refactoring/VGA_Colour_Changer.vhd 2018/05/24.12:57:16 P.20131013
+FL "C:/Users/Patryk Zdral/Documents/NEWEST/ucisw_projekt-16.05.2018_refactoring/FSM_String.vhd" 2018/05/24.18:57:10 P.20131013
+EN work/FSM_String 1527181058 \
+      FL "C:/Users/Patryk Zdral/Documents/NEWEST/ucisw_projekt-16.05.2018_refactoring/FSM_String.vhd" \
+      PB ieee/std_logic_1164 1381692176 PB ieee/std_logic_arith 1381692177 \
+      PB ieee/STD_LOGIC_UNSIGNED 1381692179
+AR work/FSM_String/RTL 1527181059 \
+      FL "C:/Users/Patryk Zdral/Documents/NEWEST/ucisw_projekt-16.05.2018_refactoring/FSM_String.vhd" \
+      EN work/FSM_String 1527181058
+FL "C:/Users/Patryk Zdral/Documents/NEWEST/ucisw_projekt-16.05.2018_refactoring/PS2_RX.vhd" 2018/05/24.03:10:42 P.20131013
+EN work/PS2_RX 1527181054 \
+      FL "C:/Users/Patryk Zdral/Documents/NEWEST/ucisw_projekt-16.05.2018_refactoring/PS2_RX.vhd" \
+      PB ieee/std_logic_1164 1381692176 PB ieee/NUMERIC_STD 1381692181 \
+      PB ieee/STD_LOGIC_SIGNED 1381692178
+AR work/PS2_RX/Behavioral 1527181055 \
+      FL "C:/Users/Patryk Zdral/Documents/NEWEST/ucisw_projekt-16.05.2018_refactoring/PS2_RX.vhd" \
+      EN work/PS2_RX 1527181054
+FL "C:/Users/Patryk Zdral/Documents/NEWEST/ucisw_projekt-16.05.2018_refactoring/TYPE_LEARNER_SCH.vhf" 2018/05/24.11:50:10 P.20131013
+EN work/TYPE_LEARNER_SCH 1527181060 \
+      FL "C:/Users/Patryk Zdral/Documents/NEWEST/ucisw_projekt-16.05.2018_refactoring/TYPE_LEARNER_SCH.vhf" \
+      PB ieee/std_logic_1164 1381692176 PB ieee/NUMERIC_STD 1381692181 LB UNISIM \
+      PH unisim/VCOMPONENTS 1381692182
+AR work/TYPE_LEARNER_SCH/BEHAVIORAL 1527181061 \
+      FL "C:/Users/Patryk Zdral/Documents/NEWEST/ucisw_projekt-16.05.2018_refactoring/TYPE_LEARNER_SCH.vhf" \
+      EN work/TYPE_LEARNER_SCH 1527181060 CP PS2_RX CP VGA_Colour_Changer \
+      CP FSM_String CP VCC CP GND CP VGAtxt48x20
+FL "C:/Users/Patryk Zdral/Documents/NEWEST/ucisw_projekt-16.05.2018_refactoring/VGA_Colour_Changer.vhd" 2018/05/24.12:57:18 P.20131013
+EN work/VGA_Colour_Changer 1527181056 \
+      FL "C:/Users/Patryk Zdral/Documents/NEWEST/ucisw_projekt-16.05.2018_refactoring/VGA_Colour_Changer.vhd" \
+      PB ieee/std_logic_1164 1381692176
+AR work/VGA_Colour_Changer/Behavioral 1527181057 \
+      FL "C:/Users/Patryk Zdral/Documents/NEWEST/ucisw_projekt-16.05.2018_refactoring/VGA_Colour_Changer.vhd" \
+      EN work/VGA_Colour_Changer 1527181056
+FL D:/mrfarinq/Projects/Xilinx/projects/zaliczenie/uciswowe_gowno/FSM_String.vhd 2018/05/24.02:19:52 P.20131013
+FL D:/mrfarinq/Projects/Xilinx/projects/zaliczenie/uciswowe_gowno/PS2_RX.vhd 2018/05/24.02:19:46 P.20131013
+FL D:/mrfarinq/Projects/Xilinx/projects/zaliczenie/uciswowe_gowno/TYPE_LEARNER_SCH.vhf 2018/05/24.03:08:15 P.20131013
+FL D:/mrfarinq/Projects/Xilinx/projects/zaliczenie/uciswowe_gowno/VGA_Colour_Changer.vhd 2018/05/24.02:06:41 P.20131013

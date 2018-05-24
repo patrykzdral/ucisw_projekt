@@ -1,164 +1,176 @@
-library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.STD_LOGIC_ARITH.ALL;
-use IEEE.STD_LOGIC_UNSIGNED.ALL;
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.ALL;
+USE IEEE.STD_LOGIC_ARITH.ALL;
+USE IEEE.STD_LOGIC_UNSIGNED.ALL;
 
-entity FSM_String is
-    Port ( Clk : in  STD_LOGIC;
-           Reset : in  STD_LOGIC;
-           LCD_Busy : in  STD_LOGIC;
-           LCD_WE : out  STD_LOGIC;
-           LCD_DnI : out  STD_LOGIC;
-           LCD_DI : out  STD_LOGIC_VECTOR (7 downto 0);
-           PS2_Input : in STD_LOGIC_VECTOR (7 downto 0);
-           PS2_DoRdy : in STD_LOGIC;
-           New_Line : out STD_LOGIC
-           );
+ENTITY FSM_String IS
+	PORT (
+		CLK             : IN STD_LOGIC;
+		RESET           : IN STD_LOGIC;
+		VGA_WE          : OUT STD_LOGIC;
+		VGA_COLOUR_MODE : OUT STD_LOGIC;
+		VGA_DI          : OUT STD_LOGIC_VECTOR (7 DOWNTO 0);
+		VGA_NEW_LINE    : OUT STD_LOGIC;
+		PS2_INPUT       : IN STD_LOGIC_VECTOR (7 DOWNTO 0);
+		PS2_RDY         : IN STD_LOGIC
+	);
+END FSM_String;
 
-
-end FSM_String;
-
-architecture RTL of FSM_String is
-
-  -- FSM
-  type state_type is (
-    sReset,
-    sBusyWait,
-    sWE,
-    sLoop,
-    sLine,
-    sWE2,
-    sPrint,
-    sBusyWait2
-    );
-  signal State, nextState : state_type; 
-
-  -- String to print
-  type STRINGZ is array ( NATURAL range <> ) of CHARACTER;
-  constant nStrSize : POSITIVE := 12;
-  signal romStr : STRINGZ( 0 to nStrSize - 1 ) := "hello world" & NUL;
-  signal ascii : STD_LOGIC_VECTOR ( 7 downto 0 ) := ( others => '0' );
-
-  -- Character index
-  signal cntIdx : std_logic_vector( 3 downto 0 ) := ( others => '0' );
-
-begin
-
-  -- Character index
-  process ( Clk )
-  begin
-    if rising_edge( Clk ) then
-      if State = sReset then
-        cntIdx <= ( others => '0' );
-      elsif State = sLine then
-        cntIdx <= ( others => '0' );
-      elsif State = sBusyWait2 then
-         cntIdx <= cntIdx + 1; --sBusyWait2, poniewaz kiedy sWE2 zapetla sie do siebie - index bylby wciaz inkrementowany
-      elsif State = sWE then
-        cntIdx <= cntIdx + 1;
-      end if;
-    end if;
-  end process;
-
-  -- FSM
-	process ( Clk )
-  begin
-    if rising_edge( Clk ) then
-      if Reset = '1' then
-        State <= sReset;
-      else
-        State <= nextState;
-      end if;
-    end if;
-  end process;
-	process( State, LCD_Busy, cntIdx, romStr, ascii )
-  begin
-    nextState <= State;   -- default is to stay in current State
+ARCHITECTURE RTL OF FSM_String IS
+	TYPE state_type IS (s_reset, s_loop_writing_pattern_chars, s_write_pattern_char, s_new_line, s_end, s_before_write_typed_char, s_write_typed_char, s_error);
+	SIGNAL state, next_state : state_type;
+	TYPE STRINGZ IS ARRAY (NATURAL RANGE <>) OF CHARACTER;
+	CONSTANT SENTENCE_SIZE_1 : POSITIVE                          := 30;
+	--CONSTANT SENTENCE_SIZE_1 : POSITIVE                          := 4;
+	CONSTANT SENTENCE_SIZE_2 : POSITIVE                          := 23;
+	CONSTANT SENTENCE_SIZE_3 : POSITIVE                          := 29;
+	SIGNAL sentence_str_1    : STRINGZ(0 TO SENTENCE_SIZE_1 - 1) := "witamy na laboratorium uciswu" & NUL;
+	--SIGNAL sentence_str_1    : STRINGZ(0 TO SENTENCE_SIZE_1 - 1) := "wit" & NUL;
+	SIGNAL sentence_str_2    : STRINGZ(0 TO SENTENCE_SIZE_2 - 1) := "kurs szybkiego pisania" & NUL;
+	SIGNAL sentence_str_3    : STRINGZ(0 TO SENTENCE_SIZE_3 - 1) := "skoordynowane gospodarowanie" & NUL;
+	SIGNAL which_str         : std_logic_vector(1 DOWNTO 0)      := (OTHERS => '0');
+	SIGNAL scn_code_to_ascii : STD_LOGIC_VECTOR (7 DOWNTO 0)     := (OTHERS => '0');
+   SIGNAL current_str_idx   : std_logic_vector(5 DOWNTO 0)      := (OTHERS => '0');
+	shared variable status_error : integer := 0;
     
-    case State is
+BEGIN
+	PROCESS (CLK)
+	BEGIN
+		IF rising_edge(CLK) THEN
+			IF state = s_reset THEN
+				current_str_idx <= (OTHERS => '0');
+			ELSIF state = s_new_line THEN
+				current_str_idx <= (OTHERS => '0');
+			ELSIF state = s_write_typed_char THEN
+				current_str_idx <= current_str_idx + 1;
+			ELSIF state = s_write_pattern_char THEN
+				current_str_idx <= current_str_idx + 1;
+			ELSIF state = s_end THEN
+				which_str       <= which_str + 1;
+			END IF;
+		END IF;
+    END PROCESS;
+    
+   PROCESS (CLK)
+	BEGIN
+		IF rising_edge(CLK) THEN
+			IF PS2_RDY = '1' THEN
+				status_error := 1;
+			ELSif PS2_RDY = '0' THEN
+				status_error := status_error - 1;
+			END IF;
+		END IF;
+    END PROCESS;
+    
 
-      when sReset =>
-        nextState <= sBusyWait;
-
-      when sBusyWait =>
-        if LCD_Busy = '0' then
-          nextState <= sWE;
-        end if;
-
-      when sWE =>   -- WE pulse
-        nextState <= sLoop;
-
-      when sLoop =>
-        if romStr( conv_integer( cntIdx ) ) /= NUL then
-            nextState <= sBusyWait;
-        else
-            nextState <= sLine;
-        end if;
-            
-      when sLine =>   -- WE pulse
-        nextState <= sWE2;
-
-      when sWE2 =>
-         if romStr( conv_integer( cntIdx ) ) /= NUL and ( ascii = ('0' & CONV_STD_LOGIC_VECTOR( CHARACTER'Pos( romStr( conv_integer( cntIdx ) ) ), 7 ) ) ) then
-            nextState <= sBusyWait2;          
-         else
-            nextState <= sWE2;
-         end if;
-         
-      when sBusyWait2 =>
-         if LCD_Busy = '0' then
-            nextState <= sPrint;
-         end if;
-         
-      when sPrint =>
-         nextState <= sWE2;         
-        
-    end case;
-  end process;
-  
-  -- Outputs
-  LCD_WE  <= '1' when State = sWE else '0';
-  LCD_DnI <= '1';
-  --LCD_DI <= '0' & 
-    --CONV_STD_LOGIC_VECTOR( CHARACTER'Pos( romStr( conv_integer( cntIdx ) ) ), 7 );
-  New_Line <= '1' when State = sLine else '0';
-  LCD_DI <= '0' & CONV_STD_LOGIC_VECTOR( CHARACTER'Pos( romStr( conv_integer( cntIdx ) ) ), 7 ) when ((State = sLoop) or ( State = sPrint ));
- 
-  process( PS2_Input ) 
-  begin
-   if PS2_DoRdy = '1' and rising_edge( Clk) then
-   CASE PS2_Input IS
-      WHEN x"1C" => ascii <= x"61"; --a
-      WHEN x"32" => ascii <= x"62"; --b
-      WHEN x"21" => ascii <= x"63"; --c
-      WHEN x"23" => ascii <= x"64"; --d
-      WHEN x"24" => ascii <= x"65"; --e
-      WHEN x"2B" => ascii <= x"66"; --f
-      WHEN x"34" => ascii <= x"67"; --g
-      WHEN x"33" => ascii <= x"68"; --h
-      WHEN x"43" => ascii <= x"69"; --i
-      WHEN x"3B" => ascii <= x"6A"; --j
-      WHEN x"42" => ascii <= x"6B"; --k
-      WHEN x"4B" => ascii <= x"6C"; --l
-      WHEN x"3A" => ascii <= x"6D"; --m
-      WHEN x"31" => ascii <= x"6E"; --n
-      WHEN x"44" => ascii <= x"6F"; --o
-      WHEN x"4D" => ascii <= x"70"; --p
-      WHEN x"15" => ascii <= x"71"; --q
-      WHEN x"2D" => ascii <= x"72"; --r
-      WHEN x"1B" => ascii <= x"73"; --s
-      WHEN x"2C" => ascii <= x"74"; --t
-      WHEN x"3C" => ascii <= x"75"; --u
-      WHEN x"2A" => ascii <= x"76"; --v
-      WHEN x"1D" => ascii <= x"77"; --w
-      WHEN x"22" => ascii <= x"78"; --x
-      WHEN x"35" => ascii <= x"79"; --y
-      WHEN x"1A" => ascii <= x"7A"; --z
-      WHEN x"29" => ascii <= x"20"; --space
-      WHEN OTHERS => ascii <= x"00"; --error code
-    END CASE;
-    end if;
-  end process;
-
-end RTL;
-
+	PROCESS (CLK)
+	BEGIN
+		IF rising_edge(CLK) THEN
+			IF RESET = '1' THEN
+				state <= s_reset;
+			ELSE
+				state <= next_state;
+			END IF;
+		END IF;
+    END PROCESS;
+    
+	PROCESS (state, current_str_idx, scn_code_to_ascii)
+	BEGIN
+		next_state <= state;
+		CASE state IS
+			WHEN s_reset =>
+				next_state <= s_write_pattern_char;
+			WHEN s_write_pattern_char =>
+				next_state <= s_loop_writing_pattern_chars;
+			WHEN s_loop_writing_pattern_chars =>
+				IF ((which_str = 0 AND sentence_str_1(conv_integer(current_str_idx)) /= NUL)
+					OR (which_str = 1 AND sentence_str_2(conv_integer(current_str_idx)) /= NUL)
+					OR (which_str = 2 AND sentence_str_3(conv_integer(current_str_idx)) /= NUL)) THEN
+					next_state <= s_write_pattern_char;
+				ELSE
+					next_state <= s_new_line;
+				END IF;
+			WHEN s_new_line =>
+				next_state <= s_before_write_typed_char;
+			WHEN s_before_write_typed_char =>
+            VGA_COLOUR_MODE <= '1';
+				IF ((which_str = 0 AND (sentence_str_1(conv_integer(current_str_idx)) /= NUL)
+					AND (scn_code_to_ascii = ('0' & CONV_STD_LOGIC_VECTOR(CHARACTER'Pos(sentence_str_1(conv_integer(current_str_idx))), 7))))
+					OR (which_str = 1 AND sentence_str_2(conv_integer(current_str_idx)) /= NUL
+					AND (scn_code_to_ascii = ('0' & CONV_STD_LOGIC_VECTOR(CHARACTER'Pos(sentence_str_2(conv_integer(current_str_idx))), 7))))
+					OR (which_str = 2 AND sentence_str_3(conv_integer(current_str_idx)) /= NUL
+					AND (scn_code_to_ascii = ('0' & CONV_STD_LOGIC_VECTOR(CHARACTER'Pos(sentence_str_3(conv_integer(current_str_idx))), 7))))) THEN
+					next_state <= s_write_typed_char;
+				ELSIF ((which_str = 0 AND current_str_idx = SENTENCE_SIZE_1 - 1 AND scn_code_to_ascii = x"13")
+					OR (which_str = 1 AND current_str_idx = SENTENCE_SIZE_2 - 1 AND scn_code_to_ascii = x"13")
+					OR (which_str = 2 AND current_str_idx = SENTENCE_SIZE_3 - 1 AND scn_code_to_ascii = x"13")) THEN
+					next_state <= s_end;
+				ELSIF((which_str = 0 AND (sentence_str_1(conv_integer(current_str_idx)) /= NUL)
+					AND (scn_code_to_ascii /= ('0' & CONV_STD_LOGIC_VECTOR(CHARACTER'Pos(sentence_str_1(conv_integer(current_str_idx))), 7))) and status_error = 1)
+					OR (which_str = 1 AND sentence_str_2(conv_integer(current_str_idx)) /= NUL
+					AND (scn_code_to_ascii /= ('0' & CONV_STD_LOGIC_VECTOR(CHARACTER'Pos(sentence_str_2(conv_integer(current_str_idx))), 7))) and status_error = 1)
+					OR (which_str = 2 AND sentence_str_3(conv_integer(current_str_idx)) /= NUL
+					AND (scn_code_to_ascii /= ('0' & CONV_STD_LOGIC_VECTOR(CHARACTER'Pos(sentence_str_3(conv_integer(current_str_idx))), 7))) and status_error = 1)) THEN
+					next_state <= s_error;
+				END IF;
+			WHEN s_write_typed_char =>
+				next_state <= s_before_write_typed_char;
+			WHEN s_error =>
+            VGA_COLOUR_MODE <= '0';
+				next_state <= s_before_write_typed_char after 1000 ns;
+			WHEN s_end =>
+				next_state <= s_reset;
+		END CASE;
+    END PROCESS;
+    
+	VGA_WE       <= '1' WHEN (state = s_write_pattern_char OR state = s_write_typed_char) ELSE '0';
+    VGA_NEW_LINE <= '1' WHEN (state = s_new_line OR state = s_end) ELSE '0';
+    
+	PROCESS (which_str, state)
+	BEGIN
+		IF (which_str = 0 AND ((state = s_write_pattern_char) OR (state = s_write_typed_char))) THEN
+			VGA_DI <= ('0' & CONV_STD_LOGIC_VECTOR(CHARACTER'Pos(sentence_str_1(conv_integer(current_str_idx))), 7));
+		ELSIF (which_str = 1 AND ((state = s_write_pattern_char) OR (state = s_write_typed_char))) THEN
+			VGA_DI <= ('0' & CONV_STD_LOGIC_VECTOR(CHARACTER'Pos(sentence_str_2(conv_integer(current_str_idx))), 7));
+		ELSIF (which_str = 2 AND ((state = s_write_pattern_char) OR (state = s_write_typed_char))) THEN
+			VGA_DI <= ('0' & CONV_STD_LOGIC_VECTOR(CHARACTER'Pos(sentence_str_3(conv_integer(current_str_idx))), 7));
+		END IF;
+    END PROCESS;
+    
+	PROCESS (PS2_INPUT)
+	BEGIN
+		IF PS2_RDY    = '1' AND rising_edge(CLK) THEN
+			CASE PS2_INPUT IS
+				WHEN x"1C"  => scn_code_to_ascii <= x"61";
+				WHEN x"32"  => scn_code_to_ascii <= x"62";
+				WHEN x"21" => scn_code_to_ascii <= x"63";
+				WHEN x"23" => scn_code_to_ascii <= x"64";
+				WHEN x"24" => scn_code_to_ascii <= x"65";
+				WHEN x"2B" => scn_code_to_ascii <= x"66";
+				WHEN x"34" => scn_code_to_ascii <= x"67";
+				WHEN x"33" => scn_code_to_ascii <= x"68";
+				WHEN x"43" => scn_code_to_ascii <= x"69";
+				WHEN x"3B" => scn_code_to_ascii <= x"6A";
+				WHEN x"42" => scn_code_to_ascii <= x"6B";
+				WHEN x"4B" => scn_code_to_ascii <= x"6C";
+				WHEN x"3A" => scn_code_to_ascii <= x"6D";
+				WHEN x"31" => scn_code_to_ascii <= x"6E";
+				WHEN x"44" => scn_code_to_ascii <= x"6F";
+				WHEN x"4D" => scn_code_to_ascii <= x"70";
+				WHEN x"15" => scn_code_to_ascii <= x"71";
+				WHEN x"2D" => scn_code_to_ascii <= x"72";
+				WHEN x"1B" => scn_code_to_ascii <= x"73";
+				WHEN x"2C" => scn_code_to_ascii <= x"74";
+				WHEN x"3C" => scn_code_to_ascii <= x"75";
+				WHEN x"2A" => scn_code_to_ascii <= x"76";
+				WHEN x"1D" => scn_code_to_ascii <= x"77";
+				WHEN x"22" => scn_code_to_ascii <= x"78";
+				WHEN x"35" => scn_code_to_ascii <= x"79";
+				WHEN x"1A" => scn_code_to_ascii <= x"7A";
+				WHEN x"29" => scn_code_to_ascii <= x"20";
+				WHEN x"5A" => scn_code_to_ascii <= x"13";
+				WHEN OTHERS      => scn_code_to_ascii <= x"00";
+			END CASE;
+		END IF;
+	END PROCESS;
+END RTL;

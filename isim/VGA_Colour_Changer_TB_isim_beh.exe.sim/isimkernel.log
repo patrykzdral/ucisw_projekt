@@ -1,0 +1,28 @@
+Command line:
+   VGA_Colour_Changer_TB_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  49231
+
+Thu May 24 11:37:58 2018
+
+
+ Elaboration Time: 0.0936 sec
+
+ Current Memory Usage: 822.53 Meg
+
+ Total Signals          : 12
+ Total Nets             : 6
+ Total Signal Drivers   : 5
+ Total Blocks           : 3
+ Total Primitive Blocks : 2
+ Total Processes        : 2
+ Total Traceable Variables  : 9
+ Total Scalar Nets and Variables : 367
+
+ Total Simulation Time: 0.249602 sec
+
+ Current Memory Usage: 979.816 Meg
+
+Thu May 24 11:40:01 2018
+

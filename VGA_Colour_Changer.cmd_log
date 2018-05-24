@@ -1,0 +1,54 @@
+vhdtdtfi -lib work VGA_Colour_Changer.vhd -prj learner -o VGA_Colour_Changer.spl -module VGA_Colour_Changer -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e VGA_Colour_Changer.spl C:/Users/lab/Desktop/NEW/learner/VGA_Colour_Changer.sym 
+vhdtdtfi -lib work VGA_Colour_Changer.vhd -prj learner -o VGA_Colour_Changer.spl -module VGA_Colour_Changer -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e VGA_Colour_Changer.spl C:/Users/lab/Desktop/NEW/learner/VGA_Colour_Changer.sym 
+vhdtdtfi -lib work VGA_Colour_Changer.vhd -prj learner -o VGA_Colour_Changer.spl -module VGA_Colour_Changer -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e VGA_Colour_Changer.spl C:/Users/lab/Desktop/NEW/learner/VGA_Colour_Changer.sym 
+vhdtdtfi -lib work VGA_Colour_Changer.vhd -prj learner -o VGA_Colour_Changer.spl -module VGA_Colour_Changer -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e VGA_Colour_Changer.spl C:/Users/lab/Desktop/NEW/learner/VGA_Colour_Changer.sym 
+vhdtdtfi -lib work VGA_Colour_Changer.vhd -prj learner -o VGA_Colour_Changer.spl -module VGA_Colour_Changer -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e VGA_Colour_Changer.spl C:/Users/lab/Desktop/NEW/learner/VGA_Colour_Changer.sym 
+vhdtdtfi -lib work VGA_Colour_Changer.vhd -prj learner -o VGA_Colour_Changer.spl -module VGA_Colour_Changer -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e VGA_Colour_Changer.spl C:/Users/lab/Desktop/NEW/learner/VGA_Colour_Changer.sym 
+vhdtdtfi -lib work VGA_Colour_Changer.vhd -prj learner -o VGA_Colour_Changer.spl -module VGA_Colour_Changer -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e VGA_Colour_Changer.spl C:/Users/lab/Desktop/NEW/learner/VGA_Colour_Changer.sym 
+vhdtdtfi -lib work VGA_Colour_Changer.vhd -prj learner -o VGA_Colour_Changer.spl -module VGA_Colour_Changer -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e VGA_Colour_Changer.spl C:/Users/lab/Desktop/NEW/learner/VGA_Colour_Changer.sym 
+vhdtdtfi -lib work VGA_Colour_Changer.vhd -prj learner -o VGA_Colour_Changer.spl -module VGA_Colour_Changer -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e VGA_Colour_Changer.spl C:/Users/lab/Desktop/NEW/learner/VGA_Colour_Changer.sym 
+vhdtdtfi -lib work VGA_Colour_Changer.vhd -prj learner -o VGA_Colour_Changer.spl -module VGA_Colour_Changer -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e VGA_Colour_Changer.spl C:/Users/lab/Desktop/NEW/learner/VGA_Colour_Changer.sym 
+vhdtdtfi -lib work VGA_Colour_Changer.vhd -prj learner -o VGA_Colour_Changer.spl -module VGA_Colour_Changer -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e VGA_Colour_Changer.spl C:/Users/lab/Desktop/NEW/learner/VGA_Colour_Changer.sym 
+vhdtdtfi -lib work VGA_Colour_Changer.vhd -prj learner -o VGA_Colour_Changer.spl -module VGA_Colour_Changer -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e VGA_Colour_Changer.spl C:/Users/lab/Desktop/NEW/learner/VGA_Colour_Changer.sym 
+vhdtdtfi -lib work VGA_Colour_Changer.vhd -prj learner -o VGA_Colour_Changer.spl -module VGA_Colour_Changer -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e VGA_Colour_Changer.spl C:/Users/lab/Desktop/NEW/learner/VGA_Colour_Changer.sym 
+vhdtdtfi -lib work VGA_Colour_Changer.vhd -prj learner -o VGA_Colour_Changer.spl -module VGA_Colour_Changer -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e VGA_Colour_Changer.spl C:/Users/lab/Desktop/NEW/learner/VGA_Colour_Changer.sym 
+vhdtdtfi -lib work VGA_Colour_Changer.vhd -prj learner -o VGA_Colour_Changer.spl -module VGA_Colour_Changer -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e VGA_Colour_Changer.spl C:/Users/lab/Desktop/NEW/learner/VGA_Colour_Changer.sym 
+vhdtdtfi -lib work VGA_Colour_Changer.vhd -prj learner -o VGA_Colour_Changer.spl -module VGA_Colour_Changer -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e VGA_Colour_Changer.spl C:/Users/lab/Desktop/NEW/learner/VGA_Colour_Changer.sym 
+vhdtdtfi -lib work VGA_Colour_Changer.vhd -prj learner -o VGA_Colour_Changer.spl -module VGA_Colour_Changer -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e VGA_Colour_Changer.spl C:/Users/lab/Desktop/NEW/learner/VGA_Colour_Changer.sym 
+vhdtdtfi -lib work VGA_Colour_Changer.vhd -prj learner -o VGA_Colour_Changer.spl -module VGA_Colour_Changer -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e VGA_Colour_Changer.spl C:/Users/lab/Desktop/NEW/learner/VGA_Colour_Changer.sym 
+vhdtdtfi -lib work VGA_Colour_Changer.vhd -prj learner -o VGA_Colour_Changer.spl -module VGA_Colour_Changer -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e VGA_Colour_Changer.spl C:/Users/lab/Desktop/NEW/learner/VGA_Colour_Changer.sym 
+vhdtdtfi -lib work VGA_Colour_Changer.vhd -prj learner -o VGA_Colour_Changer.spl -module VGA_Colour_Changer -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e VGA_Colour_Changer.spl C:/Users/lab/Desktop/NEW/learner/VGA_Colour_Changer.sym 
+vhdtdtfi -lib work VGA_Colour_Changer.vhd -prj learner -o VGA_Colour_Changer.spl -module VGA_Colour_Changer -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e VGA_Colour_Changer.spl C:/Users/lab/Desktop/NEW/learner/VGA_Colour_Changer.sym 
+vhdtdtfi -lib work VGA_Colour_Changer.vhd -prj learner -o VGA_Colour_Changer.spl -module VGA_Colour_Changer -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e VGA_Colour_Changer.spl C:/Users/lab/Desktop/NEW/learner/VGA_Colour_Changer.sym 
+vhdtdtfi -lib work VGA_Colour_Changer.vhd -prj learner -o VGA_Colour_Changer.spl -module VGA_Colour_Changer -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e VGA_Colour_Changer.spl C:/Users/lab/Desktop/NEW/learner/VGA_Colour_Changer.sym 
+vhdtdtfi -lib work VGA_Colour_Changer.vhd -prj learner -o VGA_Colour_Changer.spl -module VGA_Colour_Changer -template D:/mrfarinq/Projects/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e VGA_Colour_Changer.spl D:/mrfarinq/Projects/Xilinx/projects/zaliczenie/uciswowe_gowno/VGA_Colour_Changer.sym 
+vhdtdtfi -lib work VGA_Colour_Changer.vhd -prj learner -o VGA_Colour_Changer.spl -module VGA_Colour_Changer -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e VGA_Colour_Changer.spl C:/Users/lab/Desktop/NEWEST/ucisw_projekt-16.05.2018_refactoring/VGA_Colour_Changer.sym 
+vhdtdtfi -lib work VGA_Colour_Changer.vhd -prj learner -o VGA_Colour_Changer.spl -module VGA_Colour_Changer -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e VGA_Colour_Changer.spl C:/Users/lab/Desktop/NEWEST/ucisw_projekt-16.05.2018_refactoring/VGA_Colour_Changer.sym 
+vhdtdtfi -lib work VGA_Colour_Changer.vhd -prj learner -o VGA_Colour_Changer.spl -module VGA_Colour_Changer -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e VGA_Colour_Changer.spl C:/Users/lab/Desktop/NEWEST/ucisw_projekt-16.05.2018_refactoring/VGA_Colour_Changer.sym 

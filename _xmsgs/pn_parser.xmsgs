@@ -8,10 +8,7 @@
 <!-- Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.    -->
 
 <messages>
-<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;C:/Users/Patryk Zdral/Downloads/paczka/learner-v2/learner/learner/learner/FSM_String.vhd&quot; into library work</arg>
-</msg>
-
-<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;C:/Users/Patryk Zdral/Downloads/paczka/learner-v2/learner/learner/learner/PS2_RX.vhd&quot; into library work</arg>
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;C:/Users/Patryk Zdral/Documents/NEWEST/ucisw_projekt-16.05.2018_refactoring/FSM_String.vhd&quot; into library work</arg>
 </msg>
 
 </messages>
